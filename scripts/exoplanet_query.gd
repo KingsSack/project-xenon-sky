@@ -9,7 +9,7 @@ func _ready():
 	response.connect("request_completed", Callable(self, "_on_query_completed"))
 	response.request(url, headers)
 
-func _on_query_completed(result, response_code, _headers, body):
+func _on_query_completed(_result, response_code, _headers, body):
 	print("Raw response code: ", response_code)
 	print("Raw body: ", body.get_string_from_utf8())
 	
