@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ee68abxjlam5"]
+[gd_scene load_steps=10 format=3 uid="uid://bnss1urf5ebkf"]
 
-[ext_resource type="FontFile" uid="uid://c7sy8wdjdddsd" path="res://papyrus.ttf" id="2_vbkmt"]
+[ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
 
 [sub_resource type="Theme" id="Theme_em32u"]
-default_font = ExtResource("2_vbkmt")
+default_font = ExtResource("1_28hgo")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip4tb"]
 bg_color = Color(0.803922, 0.6, 1, 1)
@@ -27,7 +27,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
-font = ExtResource("2_vbkmt")
+font = ExtResource("1_28hgo")
 font_size = 60
 outline_size = 10
 outline_color = Color(0.815534, 0.518011, 0.861554, 1)
@@ -208,7 +208,6 @@ offset_top = 748.0
 offset_right = 1395.0
 offset_bottom = 844.732
 theme = SubResource("Theme_7s5nk")
-theme_override_fonts/font = ExtResource("2_vbkmt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
 text = "star information"
