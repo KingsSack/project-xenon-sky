@@ -22,8 +22,10 @@ func _on_query_completed(_result, response_code, _headers, body):
 			print("Error parsing JSON: ", json_response)
 	else:
 		print("Query failed with status: ", response_code)
+	
 
-func convert_ra_and_dec(ra, dec, parallax):
+ func convert_ra_and_dec(ra, dec, parallax):
 	var x = cos(dec) * cos(ra)/tan(parallax)
 	var y = cos(dec) * sin(ra)/tan(parallax)
 	var z = sin(dec)/tan(parallax)
+	return vector3(x,y,z)
