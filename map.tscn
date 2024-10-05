@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://y46vex5hofai"]
+[gd_scene load_steps=5 format=3 uid="uid://y46vex5hofai"]
 
+[ext_resource type="Script" path="res://scripts/exoplanet_query.gd" id="1_40m28"]
 [ext_resource type="PackedScene" uid="uid://dxr8klbcdq7bj" path="res://star.tscn" id="2_vwx57"]
+[ext_resource type="PackedScene" uid="uid://bnss1urf5ebkf" path="res://ui.tscn" id="3_7frv8"]
 
 [sub_resource type="Environment" id="Environment_7ph6w"]
 background_mode = 2
+glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_40m28")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7ph6w")
@@ -14,9 +18,8 @@ environment = SubResource("Environment_7ph6w")
 transform = Transform3D(-0.857563, 0, 0.51438, 0, 1, 0, -0.51438, 0, -0.857563, 0, 0, 0)
 
 [node name="Star" parent="." instance=ExtResource("2_vwx57")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.1899, 0, 1.86121)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_right = 1458.0
-offset_bottom = 1124.0
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]
