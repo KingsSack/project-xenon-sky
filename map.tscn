@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://y46vex5hofai"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
