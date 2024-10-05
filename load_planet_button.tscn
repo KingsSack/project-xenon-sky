@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn8f5vug4o2os"]
+
+[ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_1kn8p"]
+
+[sub_resource type="Theme" id="Theme_em32u"]
+default_font = ExtResource("1_1kn8p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip4tb"]
+bg_color = Color(0.803922, 0.6, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ai1i"]
+bg_color = Color(7.84531e-06, 0.83784, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd3ht"]
+bg_color = Color(0.803922, 0.6, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(300, 100)
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet1"
