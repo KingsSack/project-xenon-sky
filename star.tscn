@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxr8klbcdq7bj"]
+[gd_scene load_steps=4 format=3 uid="uid://dxr8klbcdq7bj"]
 
-[ext_resource type="Material" path="res://emisive star material.tres" id="1_c5r5j"]
+[ext_resource type="Material" uid="uid://yxq0t0isgdfo" path="res://emisive star material.tres" id="1_c5r5j"]
+[ext_resource type="Texture2D" uid="uid://o3cacstnynlo" path="res://star.png" id="2_yvy0c"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pekwp"]
 
@@ -18,3 +19,8 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 0.0
 light_size = 1.0
 light_specular = 16.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+shaded = true
+texture = ExtResource("2_yvy0c")
