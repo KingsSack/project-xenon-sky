@@ -29,10 +29,12 @@ var x = []
 
 func make_star(x1):
 	x.append(x1)
-
+var y
 func instace_scene():
-	var scene = load("res://map.tscn")
+	var scene = preload("res://map.tscn")
 	var scene_instance = scene.instance()
 	scene_instance.set_name("scene")
-	add_child(scene_instance)
-	
+	for pos in x:
+		y = Node3D
+		y.transform(pos)
+		y.new().add_child(scene_instance)
