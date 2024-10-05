@@ -5,6 +5,7 @@
 
 [sub_resource type="Environment" id="Environment_7ph6w"]
 background_mode = 2
+glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_40m28")
@@ -16,6 +17,7 @@ environment = SubResource("Environment_7ph6w")
 transform = Transform3D(-0.857563, 0, 0.51438, 0, 1, 0, -0.51438, 0, -0.857563, 0, 0, 0)
 
 [node name="Star" parent="." instance=ExtResource("2_vwx57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1899, 0, 1.86121)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
