@@ -208,6 +208,7 @@ offset_top = 748.0
 offset_right = 1395.0
 offset_bottom = 844.732
 theme = SubResource("Theme_7s5nk")
+theme_override_fonts/font = ExtResource("1_28hgo")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
 text = "star information"
