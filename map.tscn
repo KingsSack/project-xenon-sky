@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://y46vex5hofai"]
+[gd_scene load_steps=2 format=3 uid="uid://y46vex5hofai"]
+
+[ext_resource type="Script" path="res://scripts/hello_world.gd" id="1_ko2kb"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ko2kb")
+
+[node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

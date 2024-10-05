@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Project Zenon Sky"
+run/main_scene="res://map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
