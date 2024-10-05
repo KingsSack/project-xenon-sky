@@ -1,0 +1,216 @@
+[gd_scene load_steps=10 format=3 uid="uid://ee68abxjlam5"]
+
+[ext_resource type="FontFile" uid="uid://c7sy8wdjdddsd" path="res://papyrus.ttf" id="2_vbkmt"]
+
+[sub_resource type="Theme" id="Theme_em32u"]
+default_font = ExtResource("2_vbkmt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip4tb"]
+bg_color = Color(0.803922, 0.6, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ai1i"]
+bg_color = Color(7.84531e-06, 0.83784, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd3ht"]
+bg_color = Color(0.803922, 0.6, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_o828k"]
+font = ExtResource("2_vbkmt")
+font_size = 60
+outline_size = 10
+outline_color = Color(0.815534, 0.518011, 0.861554, 1)
+
+[sub_resource type="GDScript" id="GDScript_ht13s"]
+
+[sub_resource type="Theme" id="Theme_7s5nk"]
+script = SubResource("GDScript_ht13s")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnglk"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 3.769
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.31226
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 901.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet1"
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet2"
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet3"
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet4"
+
+[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet5"
+
+[node name="Button6" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet6"
+
+[node name="Button7" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet7"
+
+[node name="Button8" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet8"
+
+[node name="Button9" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet9"
+
+[node name="Button10" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet10"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.341
+anchor_right = 0.77
+anchor_bottom = 0.03
+offset_left = -0.699036
+offset_top = 5.0
+offset_right = -0.0300293
+offset_bottom = -0.640572
+theme_override_font_sizes/font_size = 50
+text = "current star system:"
+label_settings = SubResource("LabelSettings_o828k")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.011
+offset_left = 345.0
+offset_top = 748.0
+offset_right = 1395.0
+offset_bottom = 844.732
+theme = SubResource("Theme_7s5nk")
+theme_override_fonts/font = ExtResource("2_vbkmt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
+text = "star information"
+horizontal_alignment = 1
+vertical_alignment = 1
