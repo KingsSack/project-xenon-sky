@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://y46vex5hofai"]
 
-[ext_resource type="Script" path="res://scripts/star_query.gd" id="1_kjgow"]
-[ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_gixud"]
+[ext_resource type="Script" path="res://scripts/load_stars.gd" id="1_osuq4"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_es3v1"]
 [ext_resource type="PackedScene" uid="uid://dxr8klbcdq7bj" path="res://star.tscn" id="2_vwx57"]
-[ext_resource type="PackedScene" uid="uid://b7edosh861rhl" path="res://ui.tscn" id="3_7frv8"]
+[ext_resource type="PackedScene" uid="uid://bnss1urf5ebkf" path="res://ui.tscn" id="3_7frv8"]
 
 [sub_resource type="Environment" id="Environment_7ph6w"]
 background_mode = 2
 glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_kjgow")
+script = ExtResource("1_osuq4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7ph6w")
