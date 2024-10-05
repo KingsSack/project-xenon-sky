@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://y46vex5hofai"]
+[gd_scene load_steps=5 format=3 uid="uid://bob1qjf135685"]
 
-[ext_resource type="Material" uid="uid://yxq0t0isgdfo" path="res://new_standard_material_3d.tres" id="1_5bqpf"]
-[ext_resource type="PackedScene" uid="uid://dxr8klbcdq7bj" path="res://star.tscn" id="2_vwx57"]
+[ext_resource type="Material" path="res://new_standard_material_3d.tres" id="1_5bqpf"]
+[ext_resource type="PackedScene" path="res://star.tscn" id="2_vwx57"]
 
 [sub_resource type="Environment" id="Environment_7ph6w"]
+background_mode = 2
 
 [sub_resource type="SphereMesh" id="SphereMesh_wm7wj"]
 
