@@ -1,7 +1,7 @@
 extends Node3D
 
 func _ready():
-	var url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+top+100+pl_name,ra,dec+from+ps&format=json"
+	var url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+top+100+pl_name,ra,dec,parallax+from+ps&format=json"
 	var headers = []  # No headers needed
 	
 	var response = HTTPRequest.new()
