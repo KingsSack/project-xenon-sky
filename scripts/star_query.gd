@@ -1,7 +1,7 @@
 extends Node3D
 
 func _ready():
-	var url = "https://gea.esac.esa.int/tap-server/tap/tables/sync?query=select+top+100+designation,ra,dec+from+gaiadr3.gaia_source+order+by+source_id&format=json"
+	var url = "https://gea.esac.esa.int/tap-server/tap/tables/sync?query=select+top+100+designation,ra,dec,parallax+from+gaiadr3.gaia_source+order+by+source_id&format=json"
 	var headers = []  # No headers needed
 	
 	
