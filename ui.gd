@@ -14,6 +14,8 @@ func _process(delta: float) -> void:
 
 func _on_line_edit_text_changed(new_text: String) -> void:
 	if new_text == "":
+		for i in items:
+			i.visible = true
 		return
 	matches.clear()
 	for i in items:
