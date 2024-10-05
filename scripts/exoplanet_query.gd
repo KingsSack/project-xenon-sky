@@ -23,7 +23,7 @@ func _on_query_completed(_result, response_code, _headers, body):
 	else:
 		print("Query failed with status: ", response_code)
 
-func convert_ra_and_dec(ra, dec):
-	var x = cos(dec) * cos(ra)
-	var y = cos(dec) * sin(ra)
-	var z = sin(dec)
+func convert_ra_and_dec(ra, dec, parallax):
+	var x = cos(dec) * cos(ra)/tan(parallax)
+	var y = cos(dec) * sin(ra)/tan(parallax)
+	var z = sin(dec)/tan(parallax)
