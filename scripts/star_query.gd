@@ -24,3 +24,15 @@ func _on_query_completed(_result, response_code, _headers, body):
 			print("Error parsing JSON: ", json_response)
 	else:
 		print("Query failed with status: ", response_code)
+
+var x = []
+
+func make_star(x1):
+	x.append(x1)
+
+func instace_scene():
+	var scene = load("res://map.tscn")
+	var scene_instance = scene.instance()
+	scene_instance.set_name("scene")
+	add_child(scene_instance)
+	
