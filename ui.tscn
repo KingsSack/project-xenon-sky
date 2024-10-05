@@ -1,7 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnss1urf5ebkf"]
+[gd_scene load_steps=12 format=3 uid="uid://bnss1urf5ebkf"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
-[ext_resource type="PackedScene" uid="uid://dw3jlg0bslru" path="res://sidebar.tscn" id="1_84egq"]
+[ext_resource type="Script" path="res://ui.gd" id="1_s2a2e"]
+
+[sub_resource type="Theme" id="Theme_em32u"]
+default_font = ExtResource("1_28hgo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip4tb"]
+bg_color = Color(0.803922, 0.6, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ai1i"]
+bg_color = Color(7.84531e-06, 0.83784, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd3ht"]
+bg_color = Color(0.803922, 0.6, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
 font = ExtResource("1_28hgo")
@@ -20,6 +44,17 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp8xg"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchor_right = 1.0
@@ -30,11 +65,137 @@ offset_right = 1.0
 offset_bottom = -1.31226
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s2a2e")
 
 [node name="ScrollContainer" parent="." instance=ExtResource("1_84egq")]
 layout_mode = 0
-offset_top = 0.0
-offset_bottom = 899.0
+offset_top = 82.0
+offset_right = 308.0
+offset_bottom = 901.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet1"
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet2"
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet3"
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet4"
+
+[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet5"
+
+[node name="Button6" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet6"
+
+[node name="Button7" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet7"
+
+[node name="Button8" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet8"
+
+[node name="Button9" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet9"
+
+[node name="Button10" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = SubResource("Theme_em32u")
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
+text = "exoplanet10"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -66,3 +227,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
 text = "star information"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 22.0
+offset_right = 300.0
+offset_bottom = 59.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tp8xg")
+placeholder_text = " Search"
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
