@@ -1,12 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bob1qjf135685"]
+[gd_scene load_steps=3 format=3 uid="uid://y46vex5hofai"]
 
-[ext_resource type="Material" path="res://new_standard_material_3d.tres" id="1_5bqpf"]
-[ext_resource type="PackedScene" path="res://star.tscn" id="2_vwx57"]
+[ext_resource type="PackedScene" uid="uid://dxr8klbcdq7bj" path="res://star.tscn" id="2_vwx57"]
 
 [sub_resource type="Environment" id="Environment_7ph6w"]
 background_mode = 2
-
-[sub_resource type="SphereMesh" id="SphereMesh_wm7wj"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -16,15 +13,10 @@ environment = SubResource("Environment_7ph6w")
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.857563, 0, 0.51438, 0, 1, 0, -0.51438, 0, -0.857563, 0, 0, 0)
 
+[node name="Star" parent="." instance=ExtResource("2_vwx57")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_right = 1458.0
 offset_bottom = 1124.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417267, -0.0172279, 1.77259)
-mesh = SubResource("SphereMesh_wm7wj")
-surface_material_override/0 = ExtResource("1_5bqpf")
-
-[node name="Star" parent="." instance=ExtResource("2_vwx57")]
