@@ -6,7 +6,7 @@ extends Control
 @onready var play: Button = $Button
 @onready var galxy: TextureRect = $TextureRect
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	btn_hovered(play)
 
 func start_tween(object: Object, property: String, final_val: Variant, duration: float):
