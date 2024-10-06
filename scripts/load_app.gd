@@ -9,6 +9,8 @@ var star_scene := preload("res://star.tscn")
 var star_button_scene := preload("res://star_button.tscn")
 
 var exoplanets = {}
+var exoplanet_mass = {}
+
 var stars = {}
 
 var exoplanet_data_recieved := false
@@ -21,7 +23,7 @@ func _ready():
 	loading = loading_scene.instantiate()
 	$CanvasLayer.add_child(loading)
 	Global.exoplanet_changed.connect(_on_load_exoplanet)
-	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+50+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
+	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+80+pl_name,ra,dec,sy_plx,pl_masse+FROM+ps+WHERE+pl_masse+IS+NOT+NULL+ORDER+BY+pl_name&format=json", "exoplanets")
 	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+200+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
 
 func query_database(url, key):
@@ -58,6 +60,7 @@ func _on_exoplanet_data_loaded(data):
 	for exoplanet in data:
 		create_exoplanet_button(exoplanet["pl_name"])
 		exoplanets[exoplanet["pl_name"]] = [exoplanet["ra"], exoplanet["dec"], exoplanet["sy_plx"]]
+		exoplanet_mass[exoplanet["pl_name"]] = exoplanet["pl_masse"]
 		# print("Exoplanet: ", exoplanet["pl_name"], " at (", exoplanet["ra"], ", ", exoplanet["dec"], ") with parallax: ", exoplanet["sy_plx"])
 	exoplanet_data_recieved = true
 	print("Loaded ", len(exoplanets), " exoplanets")
@@ -75,6 +78,7 @@ func create_exoplanet_button(planet_name):
 	$CanvasLayer/Control/ScrollContainer/VBoxContainer.add_child(button_instance)
 
 func get_pos(ra, dec, parallax):
+	# real:
 	# var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
 	# var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
 	# var z = sin(deg_to_rad(dec))/tan(parallax)
@@ -82,10 +86,16 @@ func get_pos(ra, dec, parallax):
 	var x = cos(rad_to_deg(dec)) * cos(rad_to_deg(ra))/tan(parallax)
 	var y = cos(rad_to_deg(dec)) * sin(rad_to_deg(ra))/tan(parallax)
 	var z = sin(rad_to_deg(dec))/tan(parallax)
-	return Vector3(x,y,z)
+	return Vector3(x, y, z)
+
+# signal get_exoplanet_mass(mass)
 
 func _on_load_exoplanet(planet_name):
 	var pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
+	
+	# get_exoplanet_mass.emit(exoplanet_mass[planet_name])
+	$CanvasLayer/Control/Label2.change_info(exoplanet_mass[planet_name])
+	
 	# print("Loading exoplanet: ", planet_name, " at ", pos)
 
 	for child in $Node.get_children():
