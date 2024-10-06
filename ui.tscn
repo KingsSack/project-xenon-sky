@@ -92,28 +92,12 @@ theme_override_fonts/font = ExtResource("1_28hgo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tp8xg")
 placeholder_text = " Search"
 
-[node name="Button" type="Button" parent="."]
+[node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
 offset_left = 370.0
-offset_top = 60.0
-offset_right = 458.0
-offset_bottom = 89.0
-theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
-theme_override_fonts/font = ExtResource("1_28hgo")
-theme_override_font_sizes/font_size = 13
-text = "hide sidebar"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 369.0
-offset_top = 24.0
-offset_right = 458.0
-offset_bottom = 53.0
-theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
-theme_override_fonts/font = ExtResource("1_28hgo")
-theme_override_font_sizes/font_size = 13
-text = "show sidebar"
+offset_top = 96.0
+offset_right = 414.0
+offset_bottom = 120.0
 
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

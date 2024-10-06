@@ -19,13 +19,10 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 		else:
 			i.visible = false
 
-
-func _on_button_pressed() -> void:
-	menu.visible = false
-	search.visible = false
-	
-
-
-func _on_button_2_pressed() -> void:
-	menu.visible = true
-	search.visible = true
+func _on_check_button_toggled(button_pressed) -> void:
+	if button_pressed == true:
+		menu.visible = false
+		search.visible = false
+	else:
+		menu.visible = true
+		search.visible = true
