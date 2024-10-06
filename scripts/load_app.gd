@@ -70,7 +70,9 @@ func _on_load_exoplanet(planet_name):
 	for star in stars:
 		var star_pos = get_pos(stars[star][0], stars[star][1], stars[star][2])
 		var new_star_scene = star_scene.instantiate()
-		print(star_pos.distance_to(pos))
-		new_star_scene.transform = Transform3D(Basis(), star_pos)
+		star_pos -= pos
+		print(star_pos.length())
+		new_star_scene.translate(star_pos)
+		
 		$Node.add_child(new_star_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
