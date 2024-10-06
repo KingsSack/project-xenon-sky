@@ -3,6 +3,7 @@ extends Node3D
 var button_scene := preload("res://load_planet_button.tscn")
 
 var star_scene := preload("res://star.tscn")
+var star_button_scene := preload("res://star_button.tscn")
 
 var exoplanets = {}
 var stars = {}
@@ -12,8 +13,8 @@ signal star_data_loaded(data)
 
 func _ready():
 	Global.exoplanet_changed.connect(_on_load_exoplanet)
-	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+10+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
-	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+25+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
+	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+20+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
+	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+100+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
 
 func query_database(url, key):
 	var headers = []
@@ -67,6 +68,10 @@ func _on_load_exoplanet(planet_name):
 
 	for child in $Node.get_children():
 		child.queue_free()
+
+	for child in $CanvasLayer/StarButtons.get_children():
+		child.queue_free()
+
 	for star in stars:
 		var star_pos = stars[star]
 		star_pos -= pos
@@ -75,4 +80,8 @@ func _on_load_exoplanet(planet_name):
 			var new_star_scene = star_scene.instantiate()
 			new_star_scene.translate(star_pos)
 			$Node.add_child(new_star_scene)
+			
+			var new_star_button_scene = star_button_scene.instantiate()
+			new_star_button_scene.star = new_star_scene
+			$CanvasLayer/StarButtons.add_child(new_star_button_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
