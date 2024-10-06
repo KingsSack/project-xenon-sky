@@ -47,7 +47,7 @@ func _on_exoplanet_data_loaded(data):
 
 func _on_star_data_loaded(data):
 	for star in data["data"]:
-		stars[star[0]] = [star[1], star[2], star[3]]
+		stars[star[0]] = get_pos(star[1], star[2], star[3])
 		# print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
 
 func create_exoplanet_button(planet_name):
@@ -69,7 +69,7 @@ func _on_load_exoplanet(planet_name):
 		child.queue_free()
 
 	for star in stars:
-		var star_pos = get_pos(stars[star][0], stars[star][1], stars[star][2])
+		var star_pos = stars[star]
 		var new_star_scene = star_scene.instantiate()
 		star_pos -= pos
 		star_pos *= 10
