@@ -99,10 +99,10 @@ placeholder_text = " Search"
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
-offset_left = 370.0
-offset_top = 96.0
-offset_right = 414.0
-offset_bottom = 120.0
+offset_left = 304.0
+offset_top = 28.0
+offset_right = 348.0
+offset_bottom = 52.0
 
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
