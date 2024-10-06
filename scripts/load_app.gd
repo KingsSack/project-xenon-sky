@@ -11,7 +11,7 @@ signal exoplanet_data_loaded(data)
 signal star_data_loaded(data)
 
 func _ready():
-	Global.connect("load_exoplanet", Callable(self, "_on_load_exoplanet"))
+	Global.exoplanet_changed.connect(_on_load_exoplanet)
 	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+10+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
 	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+25+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
 
@@ -63,7 +63,7 @@ func get_pos(ra, dec, parallax):
 
 func _on_load_exoplanet(planet_name):
 	var pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
-	print("Loading exoplanet: ", planet_name, " at ", pos)
+	# print("Loading exoplanet: ", planet_name, " at ", pos)
 
 	for child in $Node.get_children():
 		child.queue_free()
@@ -73,7 +73,6 @@ func _on_load_exoplanet(planet_name):
 		var new_star_scene = star_scene.instantiate()
 		star_pos -= pos
 		star_pos *= 10
-		print(star_pos.length())
 		new_star_scene.translate(star_pos)
 		
 		$Node.add_child(new_star_scene)
