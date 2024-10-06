@@ -88,12 +88,9 @@ func get_pos(ra, dec, parallax):
 	var z = sin(rad_to_deg(dec))/tan(parallax)
 	return Vector3(x, y, z)
 
-# signal get_exoplanet_mass(mass)
-
 func _on_load_exoplanet(planet_name):
 	var pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
 	
-	# get_exoplanet_mass.emit(exoplanet_mass[planet_name])
 	$CanvasLayer/Control/Label2.change_info(exoplanet_mass[planet_name])
 	
 	# print("Loading exoplanet: ", planet_name, " at ", pos)

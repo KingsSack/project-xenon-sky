@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7edosh861rhl"]
+[gd_scene load_steps=12 format=3 uid="uid://bnss1urf5ebkf"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
-[ext_resource type="PackedScene" uid="uid://bwdy1bhcexh7f" path="res://sidebar.tscn" id="1_84egq"]
+[ext_resource type="PackedScene" uid="uid://dw3jlg0bslru" path="res://sidebar.tscn" id="1_84egq"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
 [ext_resource type="Script" path="res://scripts/get_exoplanet_name.gd" id="4_jb8p2"]
+[ext_resource type="Script" path="res://scripts/planet_info.gd" id="5_2mgws"]
 [ext_resource type="Script" path="res://scripts/fov_slider.gd" id="5_tde2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
@@ -18,7 +19,7 @@ outline_color = Color(0.815534, 0.518011, 0.861554, 1)
 script = SubResource("GDScript_ht13s")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnglk"]
-bg_color = Color(0.490196, 0.6, 1, 1)
+bg_color = Color(0.408937, 0.619789, 0.825288, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -86,9 +87,9 @@ theme = SubResource("Theme_7s5nk")
 theme_override_fonts/font = ExtResource("1_28hgo")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
-text = "star information"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_2mgws")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
