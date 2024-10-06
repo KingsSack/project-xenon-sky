@@ -59,6 +59,8 @@ func get_pos(ra, dec, parallax):
 	var x = cos(dec) * cos(ra)/tan(parallax)
 	var y = cos(dec) * sin(ra)/tan(parallax)
 	var z = sin(dec)/tan(parallax)
+	print(ra+",", dec)
+	print(str(cos(dec) * cos(ra))+",",str(cos(dec) * sin(ra))+",",sin(dec))
 	return Vector3(x,y,z)
 
 func _on_load_exoplanet(planet_name):
@@ -67,13 +69,11 @@ func _on_load_exoplanet(planet_name):
 
 	for child in $Node.get_children():
 		child.queue_free()
-
 	for star in stars:
 		var star_pos = stars[star]
 		var new_star_scene = star_scene.instantiate()
 		star_pos -= pos
 		star_pos *= 10
 		new_star_scene.translate(star_pos)
-		
 		$Node.add_child(new_star_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
