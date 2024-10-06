@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc14yxvaeert4"]
+[gd_scene load_steps=7 format=3 uid="uid://cnn7tdf0xa0j4"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_1kn8p"]
 [ext_resource type="Script" path="res://scripts/new_exoplanet.gd" id="2_pno2c"]
