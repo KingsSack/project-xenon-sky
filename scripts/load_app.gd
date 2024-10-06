@@ -52,21 +52,7 @@ func create_exoplanet_button(planet_name):
 	button_instance.text = planet_name
 	$CanvasLayer/Control/ScrollContainer/VBoxContainer.add_child(button_instance)
 
-var x = []
-
-func make_star(x1):
-	x.append(x1)
-var y
-func instace_scene():
-	var scene = preload("res://map.tscn")
-	var scene_instance = scene.instance()
-	scene_instance.set_name("scene")
-	for pos in x:
-		y = Node3D
-		y.transform(pos)
-		y.new().add_child(scene_instance)
-
-func convert_ra_and_dec(ra, dec, parallax):
+func get_pos(ra, dec, parallax):
 	var x = cos(dec) * cos(ra)/tan(parallax)
 	var y = cos(dec) * sin(ra)/tan(parallax)
 	var z = sin(dec)/tan(parallax)
