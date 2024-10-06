@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnss1urf5ebkf"]
+[gd_scene load_steps=10 format=3 uid="uid://bnss1urf5ebkf"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
 [ext_resource type="PackedScene" path="res://sidebar.tscn" id="1_84egq"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
+[ext_resource type="Script" path="res://scripts/get_exoplanet_name.gd" id="4_jb8p2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
 font = ExtResource("1_28hgo")
@@ -60,9 +61,10 @@ offset_top = 5.0
 offset_right = -0.0300293
 offset_bottom = -0.640572
 theme_override_font_sizes/font_size = 50
-text = "current star system:"
+text = "Current exoplanet: Null"
 label_settings = SubResource("LabelSettings_o828k")
 horizontal_alignment = 1
+script = ExtResource("4_jb8p2")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
