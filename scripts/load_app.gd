@@ -56,11 +56,9 @@ func create_exoplanet_button(planet_name):
 	$CanvasLayer/Control/ScrollContainer/VBoxContainer.add_child(button_instance)
 
 func get_pos(ra, dec, parallax):
-	var x = cos(dec) * cos(ra)/tan(parallax)
-	var y = cos(dec) * sin(ra)/tan(parallax)
-	var z = sin(dec)/tan(parallax)
-	print(ra+",", dec)
-	print(str(cos(dec) * cos(ra))+",",str(cos(dec) * sin(ra))+",",sin(dec))
+	var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
+	var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
+	var z = sin(deg_to_rad(dec))/tan(parallax)
 	return Vector3(x,y,z)
 
 func _on_load_exoplanet(planet_name):
