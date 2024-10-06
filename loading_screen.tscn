@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crbjg8hgc2o0l"]
+[gd_scene load_steps=6 format=3 uid="uid://dq0csc1db84hn"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_lon3s"]
 
@@ -26,32 +26,33 @@ gradient = SubResource("Gradient_ja0gq")
 font = ExtResource("1_lon3s")
 font_size = 85
 
-[node name="Control" type="Control"]
+[node name="LoadingScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -662.0
-offset_top = -416.0
-offset_right = -662.0
-offset_bottom = -416.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 3.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_bkvic")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -51.0
-offset_top = -181.0
-offset_right = 1702.0
-offset_bottom = 1210.0
+layout_mode = 1
+anchors_preset = -1
+offset_left = -145.0
+offset_top = -231.0
+offset_right = 1608.0
+offset_bottom = 1160.0
 texture = SubResource("GradientTexture1D_jg0vl")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 439.0
-offset_top = 353.0
-offset_right = 1012.0
-offset_bottom = 488.0
+offset_left = 429.0
+offset_top = 373.0
+offset_right = 1002.0
+offset_bottom = 508.0
 text = "Loading data..."
 label_settings = SubResource("LabelSettings_kihjf")

@@ -1,4 +1,5 @@
 extends Control
+
 @export var tween_intensity: float
 @export var tween_duration: float
 
@@ -20,11 +21,3 @@ func btn_hovered(button: Button):
 	else:
 		start_tween(button, "scale", Vector2.ONE, tween_duration)
 		galxy.visible = false
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0crona147fot"]
+[gd_scene load_steps=11 format=3 uid="uid://cbdy5ie8t3vxp"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_gd5qb"]
+[ext_resource type="Script" path="res://scripts/button_animation.gd" id="1_s7q3t"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="2_jfhxf"]
 [ext_resource type="Texture2D" uid="uid://c7tw50gdnw3d2" path="res://39dd9db104baf2b9a229fcb5ee1b96db.jpg" id="2_xrhj7"]
@@ -46,7 +46,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_gd5qb")
+script = ExtResource("1_s7q3t")
 tween_intensity = 2.0
 tween_duration = 0.3
 

@@ -1,5 +1,8 @@
 extends Node3D
 
+var loading_scene := preload("res://loading_screen.tscn")
+var loading
+
 var button_scene := preload("res://load_planet_button.tscn")
 
 var star_scene := preload("res://star.tscn")
@@ -12,9 +15,11 @@ signal exoplanet_data_loaded(data)
 signal star_data_loaded(data)
 
 func _ready():
+	loading = loading_scene.instantiate()
+	$CanvasLayer.add_child(loading)
 	Global.exoplanet_changed.connect(_on_load_exoplanet)
-	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+20+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
-	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+100+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
+	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+50+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
+	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+200+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
 
 func query_database(url, key):
 	var headers = []
@@ -45,11 +50,14 @@ func _on_exoplanet_data_loaded(data):
 		create_exoplanet_button(exoplanet["pl_name"])
 		exoplanets[exoplanet["pl_name"]] = [exoplanet["ra"], exoplanet["dec"], exoplanet["sy_plx"]]
 		# print("Exoplanet: ", exoplanet["pl_name"], " at (", exoplanet["ra"], ", ", exoplanet["dec"], ") with parallax: ", exoplanet["sy_plx"])
+	print("Loaded ", len(exoplanets), " exoplanets")
+	$CanvasLayer.remove_child(loading)
 
 func _on_star_data_loaded(data):
 	for star in data["data"]:
 		stars[star[0]] = get_pos(star[1], star[2], star[3])
 		# print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
+	print("Loaded ", len(stars), " stars")
 
 func create_exoplanet_button(planet_name):
 	var button_instance = button_scene.instantiate()
