@@ -32,7 +32,6 @@ custom_minimum_size = Vector2(300, 100)
 theme = SubResource("Theme_em32u")
 theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
