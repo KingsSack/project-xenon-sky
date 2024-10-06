@@ -81,7 +81,7 @@ func _on_load_exoplanet(planet_name):
 	for child in $Node.get_children():
 		child.queue_free()
 
-	for child in $CanvasLayer/StarButtons.get_children():
+	for child in $CanvasLayer/Control/Control.get_children():
 		child.queue_free()
 
 	for star in stars:
@@ -95,5 +95,5 @@ func _on_load_exoplanet(planet_name):
 			
 			var new_star_button_scene = star_button_scene.instantiate()
 			new_star_button_scene.star = new_star_scene
-			$CanvasLayer/StarButtons.add_child(new_star_button_scene)
+			$CanvasLayer/Control/Control.add_child(new_star_button_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)

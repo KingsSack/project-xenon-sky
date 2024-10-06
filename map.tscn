@@ -29,17 +29,10 @@ script = ExtResource("2_0xmat")
 
 [node name="Node" type="Node" parent="."]
 
-[node name="Constelations" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+[node name="Constelations" type="Node2D" parent="."]
 script = ExtResource("3_cj2p7")
-camera = NodePath("../WorldEnvironment/Camera3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="StarButtons" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0crona147fot"]
+[gd_scene load_steps=11 format=3 uid="uid://cbdy5ie8t3vxp"]
 
 [ext_resource type="Script" path="res://scripts/button_animation.gd" id="1_s7q3t"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]

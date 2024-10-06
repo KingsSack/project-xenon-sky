@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://7l17ivqrc0bj"]
+[gd_scene load_steps=3 format=3 uid="uid://7l17ivqrc0bj"]
 
 [ext_resource type="Script" path="res://scripts/star_button.gd" id="1_jygle"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmy32"]
+bg_color = Color(0.754343, 0.492618, 0.750931, 1)
+
 [node name="Button" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 13.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmy32")
 script = ExtResource("1_jygle")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

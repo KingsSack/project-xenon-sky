@@ -1,17 +1,15 @@
 extends Node2D
 
-@export var camera : Camera3D
-
 func _ready():
 	Global.constelation_create.connect(_on_constelation_create)
 
-func _on_constelation_create(pos1 : Vector2, pos2 : Vector2):
-	var screen_pos1 = camera.project_position(pos1, 0)
-	var screen_pos2 = camera.project_position(pos2, 0)
-	
-	var line = Line2D.new()
-	line.default_color = Color(0, 1, 0)
-	line.width = 2
-	line.add_point(screen_pos1)
-	line.add_point(screen_pos2)
-	add_child(line)
+func _on_constelation_create(pos1 : Vector3, pos2 : Vector3):
+	var line = ImmediateMesh.new()
+	line.surface_begin(Mesh.PRIMITIVE_LINES)
+	line.surface_set_color(Color(1.0, 0.0, 1.0))
+	line.surface_add_vertex(pos1)
+	line.surface_add_vertex(pos2)
+	line.surface_end()
+	var mesh_instance = MeshInstance3D.new()
+	mesh_instance.mesh = line
+	add_child(mesh_instance)
