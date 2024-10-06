@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/load_app.gd" id="1_osuq4"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_0xmat"]
 [ext_resource type="Texture2D" uid="uid://dc6qar2pe3urh" path="res://panoramas/IMG_8867.jpeg" id="2_xbwbj"]
-[ext_resource type="PackedScene" uid="uid://b7edosh861rhl" path="res://ui.tscn" id="3_7frv8"]
+[ext_resource type="PackedScene" uid="uid://bnss1urf5ebkf" path="res://ui.tscn" id="3_7frv8"]
 [ext_resource type="Script" path="res://scripts/constelations.gd" id="3_cj2p7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxq5t"]

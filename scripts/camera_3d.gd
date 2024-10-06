@@ -2,7 +2,6 @@ extends Camera3D
 
 func _ready():
 	get_node("/root/Node3D/CanvasLayer/Control/VSlider").slider_changed.connect(_on_slider_changed)
-	
 
 func _input(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and notslidering:
