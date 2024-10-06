@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbdy5ie8t3vxp"]
+[gd_scene load_steps=12 format=3 uid="uid://c0crona147fot"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_gd5qb"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="2_jfhxf"]
+[ext_resource type="Texture2D" uid="uid://c7tw50gdnw3d2" path="res://39dd9db104baf2b9a229fcb5ee1b96db.jpg" id="2_xrhj7"]
 
 [sub_resource type="Gradient" id="Gradient_cgg1w"]
-colors = PackedColorArray(0.511839, 0.162427, 0.665259, 1, 0.651368, 0.575504, 0.973681, 1)
+offsets = PackedFloat32Array(0, 0, 1)
+colors = PackedColorArray(0.791713, 0.515988, 0.937076, 1, 0.65544, 0.00027242, 0.641631, 1, 0.449085, 0.528946, 0.902573, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bwck5"]
 gradient = SubResource("Gradient_cgg1w")
@@ -62,6 +64,14 @@ offset_right = 717.0
 offset_bottom = 471.0
 texture = SubResource("GradientTexture1D_bwck5")
 
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -756.0
+offset_top = -471.0
+offset_right = 729.0
+offset_bottom = 483.0
+texture = ExtResource("2_xrhj7")
+
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = -720.0
@@ -90,6 +100,7 @@ offset_left = -93.0
 offset_top = -31.0
 offset_right = 92.0
 offset_bottom = 32.0
+theme_override_colors/font_hover_color = Color(0, 0.655582, 0, 1)
 theme_override_fonts/font = ExtResource("2_jfhxf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_g1400")
