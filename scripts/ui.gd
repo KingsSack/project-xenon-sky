@@ -4,7 +4,6 @@ var matches = []
 
 func _on_line_edit_text_changed(new_text: String) -> void:
 	var items = $ScrollContainer/VBoxContainer.get_children()
-	print(items)
 	if new_text == "":
 		for i in items:
 			i.visible = true
