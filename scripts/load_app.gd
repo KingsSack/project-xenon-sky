@@ -69,10 +69,10 @@ func _on_load_exoplanet(planet_name):
 		child.queue_free()
 	for star in stars:
 		var star_pos = stars[star]
-		var new_star_scene = star_scene.instantiate()
 		star_pos -= pos
 		star_pos *= 100
 		if (star_pos.length()<100):
+			var new_star_scene = star_scene.instantiate()
 			new_star_scene.translate(star_pos)
 			$Node.add_child(new_star_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
