@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cds54em2tc1hg"]
+[gd_scene load_steps=8 format=3 uid="uid://cds54em2tc1hg"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_lon3s"]
+[ext_resource type="Script" path="res://loading_progress.gd" id="2_vrajy"]
 
 [sub_resource type="GDScript" id="GDScript_bkvic"]
 script/source = "extends Control
@@ -25,6 +26,9 @@ gradient = SubResource("Gradient_ja0gq")
 [sub_resource type="LabelSettings" id="LabelSettings_kihjf"]
 font = ExtResource("1_lon3s")
 font_size = 85
+
+[sub_resource type="LabelSettings" id="LabelSettings_110xs"]
+font_size = 32
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -56,3 +60,14 @@ offset_right = 1002.0
 offset_bottom = 508.0
 text = "Loading data..."
 label_settings = SubResource("LabelSettings_kihjf")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 517.0
+offset_right = 756.0
+offset_bottom = 543.0
+text = "0/2"
+label_settings = SubResource("LabelSettings_110xs")
+horizontal_alignment = 1
+script = ExtResource("2_vrajy")

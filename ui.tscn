@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnss1urf5ebkf"]
+[gd_scene load_steps=13 format=3 uid="uid://bnss1urf5ebkf"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
-[ext_resource type="PackedScene" uid="uid://dw3jlg0bslru" path="res://sidebar.tscn" id="1_84egq"]
+[ext_resource type="PackedScene" uid="uid://bwdy1bhcexh7f" path="res://sidebar.tscn" id="1_84egq"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
 [ext_resource type="Script" path="res://scripts/get_exoplanet_name.gd" id="4_jb8p2"]
 [ext_resource type="Script" path="res://scripts/planet_info.gd" id="5_2mgws"]
 [ext_resource type="Script" path="res://scripts/fov_slider.gd" id="5_tde2r"]
+[ext_resource type="Script" path="res://scripts/constelation_editor.gd" id="7_x2pmn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
 font = ExtResource("1_28hgo")
@@ -116,7 +117,29 @@ offset_right = 1424.0
 offset_bottom = 718.0
 script = ExtResource("5_tde2r")
 
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 1097.0
+offset_top = 699.0
+offset_right = 1246.0
+offset_bottom = 722.0
+text = "Constelation Editor"
+
+[node name="CheckButton" type="CheckButton" parent="Control2"]
+layout_mode = 0
+offset_left = 1249.0
+offset_top = 700.0
+offset_right = 1293.0
+offset_bottom = 724.0
+script = ExtResource("7_x2pmn")
+
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="drag_ended" from="VSlider" to="VSlider" method="_on_drag_ended"]
 [connection signal="drag_started" from="VSlider" to="VSlider" method="_on_drag_started"]
+[connection signal="toggled" from="Control2/CheckButton" to="Control2/CheckButton" method="_on_toggled"]

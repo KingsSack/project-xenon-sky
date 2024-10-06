@@ -1,9 +1,9 @@
 extends Node2D
 
 func _ready():
-	Global.constelation_create.connect(_on_constelation_create)
+	Global.create_constelation.connect(_on_creae_constelation)
 
-func _on_constelation_create(pos1 : Vector3, pos2 : Vector3):
+func _on_creae_constelation(pos1 : Vector3, pos2 : Vector3):
 	var line = ImmediateMesh.new()
 	line.surface_begin(Mesh.PRIMITIVE_LINES)
 	line.surface_set_color(Color(1.0, 0.0, 0.0))

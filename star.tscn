@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxr8klbcdq7bj"]
+[gd_scene load_steps=3 format=3 uid="uid://dxr8klbcdq7bj"]
 
+[ext_resource type="Script" path="res://scripts/star.gd" id="1_h6gje"]
 [ext_resource type="Texture2D" uid="uid://ok8uj6hhbyk4" path="res://assets/star2.png" id="1_wdv6t"]
 
 [node name="Star" type="Node3D"]
+script = ExtResource("1_h6gje")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 16.0
