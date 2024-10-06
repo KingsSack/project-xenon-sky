@@ -88,6 +88,7 @@ offset_left = 5.0
 offset_top = 22.0
 offset_right = 300.0
 offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("1_28hgo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tp8xg")
 placeholder_text = " Search"
 
