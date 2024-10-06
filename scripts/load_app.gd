@@ -19,7 +19,7 @@ func _ready():
 	$CanvasLayer.add_child(loading)
 	Global.exoplanet_changed.connect(_on_load_exoplanet)
 	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+50+pl_name,ra,dec,sy_plx+FROM+ps+ORDER+BY+pl_name&format=json", "exoplanets")
-	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+150+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
+	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+200+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
 
 func query_database(url, key):
 	var headers = []
