@@ -28,10 +28,10 @@ func query_database(url, key):
 	var headers = []
 	var response = HTTPRequest.new()
 	add_child(response)
-	response.connect("request_completed", Callable(self, "_on_query_completed").bind(key))
+	response.connect("request_completed", Callable(self, "_on_query_completed").bind(key, url))
 	response.request(url, headers)
 
-func _on_query_completed(_result, response_code, _headers, body, key):
+func _on_query_completed(_result, response_code, _headers, body, key, url):
 	# print("Raw body: ", body.get_string_from_utf8())
 	if response_code == 200:
 		var json = JSON.new()
@@ -45,6 +45,9 @@ func _on_query_completed(_result, response_code, _headers, body, key):
 				star_data_loaded.emit(json.data)
 		else:
 			print("Error parsing JSON: ", error)
+	elif response_code == 0:
+		print("Query failed with status 0, retrying...")
+		query_database(url, key)
 	else:
 		print("Query failed with status: ", response_code)
 	
@@ -89,6 +92,9 @@ func _on_load_exoplanet(planet_name):
 		child.queue_free()
 
 	for child in $CanvasLayer/Control/Control.get_children():
+		child.queue_free()
+	
+	for child in $Constelations.get_children():
 		child.queue_free()
 
 	for star in stars:
