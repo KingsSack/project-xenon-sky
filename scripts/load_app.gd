@@ -72,6 +72,7 @@ func _on_load_exoplanet(planet_name):
 		var star_pos = get_pos(stars[star][0], stars[star][1], stars[star][2])
 		var new_star_scene = star_scene.instantiate()
 		star_pos -= pos
+		star_pos *= 10
 		print(star_pos.length())
 		new_star_scene.translate(star_pos)
 		
