@@ -1,16 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0crona147fot"]
+[gd_scene load_steps=11 format=3 uid="uid://c0crona147fot"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_gd5qb"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="2_jfhxf"]
 [ext_resource type="Texture2D" uid="uid://c7tw50gdnw3d2" path="res://39dd9db104baf2b9a229fcb5ee1b96db.jpg" id="2_xrhj7"]
-
-[sub_resource type="Gradient" id="Gradient_cgg1w"]
-offsets = PackedFloat32Array(0, 0, 1)
-colors = PackedColorArray(0.791713, 0.515988, 0.937076, 1, 0.65544, 0.00027242, 0.641631, 1, 0.449085, 0.528946, 0.902573, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bwck5"]
-gradient = SubResource("Gradient_cgg1w")
+[ext_resource type="Texture2D" uid="uid://dddm1npearao6" path="res://eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2dldHR5aW1hZ2VzLTU0MTM4NTg1Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH19fQ==.webp" id="3_xv74u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_17hsh"]
 font_size = 128
@@ -56,14 +50,6 @@ script = ExtResource("1_gd5qb")
 tween_intensity = 2.0
 tween_duration = 0.3
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = -729.0
-offset_top = -461.0
-offset_right = 717.0
-offset_bottom = 471.0
-texture = SubResource("GradientTexture1D_bwck5")
-
 [node name="TextureRect2" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_left = -756.0
@@ -71,6 +57,15 @@ offset_top = -471.0
 offset_right = 729.0
 offset_bottom = 483.0
 texture = ExtResource("2_xrhj7")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -729.0
+offset_top = -461.0
+offset_right = 717.0
+offset_bottom = 471.0
+texture = ExtResource("3_xv74u")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
