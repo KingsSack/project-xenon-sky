@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://scripts/star_button.gd" id="1_jygle"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmy32"]
-bg_color = Color(0.754343, 0.492618, 0.750931, 1)
+bg_color = Color(0.998094, 0.874693, 0.470837, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [node name="Button" type="Button"]
-modulate = Color(1, 1, 1, 0.392157)
+modulate = Color(1, 1, 1, 0.431373)
 offset_right = 13.0
 offset_bottom = 12.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pmy32")
