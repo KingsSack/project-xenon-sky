@@ -18,6 +18,8 @@ environment = SubResource("Environment_7ph6w")
 transform = Transform3D(-0.857563, 0, 0.51438, 0, 1, 0, -0.51438, 0, -0.857563, 0, 0, 0)
 script = ExtResource("2_0xmat")
 
+[node name="Node" type="Node" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]

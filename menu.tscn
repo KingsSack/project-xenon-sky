@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbdy5ie8t3vxp"]
+
+[ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_17hsh"]
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_gi8rd"]
+font_size = 48
+
+[node name="Menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -720.0
+offset_top = -386.0
+offset_right = 717.0
+offset_bottom = -211.0
+text = "Project Xenon Sky"
+label_settings = SubResource("LabelSettings_17hsh")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -717.0
+offset_top = -187.0
+offset_right = 715.0
+offset_bottom = -120.0
+text = "“Adventuring into the past”"
+label_settings = SubResource("LabelSettings_gi8rd")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = -31.0
+offset_right = 92.0
+offset_bottom = 32.0
+text = "Begin"
+script = ExtResource("1_yrlt3")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_begin_pressed"]

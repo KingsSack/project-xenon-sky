@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnss1urf5ebkf"]
+[gd_scene load_steps=9 format=3 uid="uid://bnss1urf5ebkf"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
 [ext_resource type="PackedScene" uid="uid://dw3jlg0bslru" path="res://sidebar.tscn" id="1_84egq"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
 font = ExtResource("1_28hgo")
@@ -41,6 +42,7 @@ offset_right = 1.0
 offset_bottom = -1.31226
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kgh5u")
 
 [node name="ScrollContainer" parent="." instance=ExtResource("1_84egq")]
 layout_mode = 0

@@ -2,6 +2,8 @@ extends Node3D
 
 var button_scene := preload("res://load_planet_button.tscn")
 
+var star_scene := preload("res://star.tscn")
+
 var exoplanets = {}
 var stars = {}
 
@@ -57,3 +59,18 @@ func get_pos(ra, dec, parallax):
 	var y = cos(dec) * sin(ra)/tan(parallax)
 	var z = sin(dec)/tan(parallax)
 	return Vector3(x,y,z)
+
+func _on_load_exoplanet(planet_name):
+	var pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
+	print("Loading exoplanet: ", planet_name, " at ", pos)
+
+	for child in $Node.get_children():
+		child.queue_free()
+
+	for star in stars:
+		var star_pos = get_pos(stars[star][0], stars[star][1], stars[star][2])
+		var new_star_scene = star_scene.instantiate()
+		print(star_pos.distance_to(pos))
+		new_star_scene.transform = Transform3D(Basis(), star_pos)
+		$Node.add_child(new_star_scene)
+		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)

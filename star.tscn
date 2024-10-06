@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxr8klbcdq7bj"]
 
-[ext_resource type="Texture2D" uid="uid://o3cacstnynlo" path="res://star.png" id="2_yvy0c"]
+[ext_resource type="Texture2D" uid="uid://o3cacstnynlo" path="res://assets/star.png" id="2_yvy0c"]
 
 [node name="Star" type="Node3D"]
 
