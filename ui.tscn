@@ -118,3 +118,5 @@ script = ExtResource("5_tde2r")
 
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="drag_ended" from="VSlider" to="VSlider" method="_on_drag_ended"]
+[connection signal="drag_started" from="VSlider" to="VSlider" method="_on_drag_started"]
