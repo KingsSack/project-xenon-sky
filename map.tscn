@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://y46vex5hofai"]
+[gd_scene load_steps=6 format=3 uid="uid://y46vex5hofai"]
 
 [ext_resource type="Script" path="res://scripts/load_app.gd" id="1_osuq4"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_0xmat"]
 [ext_resource type="PackedScene" uid="uid://bnss1urf5ebkf" path="res://ui.tscn" id="3_7frv8"]
+[ext_resource type="Script" path="res://ui.gd" id="4_8gy2o"]
 
 [sub_resource type="Environment" id="Environment_7ph6w"]
 background_mode = 2
@@ -23,6 +24,7 @@ script = ExtResource("2_0xmat")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]
+script = ExtResource("4_8gy2o")
 
 [connection signal="exoplanet_data_loaded" from="." to="." method="_on_exoplanet_data_loaded"]
 [connection signal="star_data_loaded" from="." to="." method="_on_star_data_loaded"]
