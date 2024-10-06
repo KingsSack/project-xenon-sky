@@ -12,9 +12,13 @@ gradient = SubResource("Gradient_cgg1w")
 
 [sub_resource type="LabelSettings" id="LabelSettings_17hsh"]
 font_size = 128
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gi8rd"]
 font_size = 48
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1400"]
 bg_color = Color(0.6, 0.6, 1, 1)
