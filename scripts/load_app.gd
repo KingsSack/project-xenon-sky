@@ -56,7 +56,7 @@ func _on_exoplanet_data_loaded(data):
 func _on_star_data_loaded(data):
 	for star in data["data"]:
 		stars[star[0]] = get_pos(star[1], star[2], star[3])
-		# print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
+		print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
 	print("Loaded ", len(stars), " stars")
 
 func create_exoplanet_button(planet_name):
@@ -65,9 +65,13 @@ func create_exoplanet_button(planet_name):
 	$CanvasLayer/Control/ScrollContainer/VBoxContainer.add_child(button_instance)
 
 func get_pos(ra, dec, parallax):
-	var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
-	var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
-	var z = sin(deg_to_rad(dec))/tan(parallax)
+	# var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
+	# var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
+	# var z = sin(deg_to_rad(dec))/tan(parallax)
+	# fake:
+	var x = cos(rad_to_deg(dec)) * cos(rad_to_deg(ra))/tan(parallax)
+	var y = cos(rad_to_deg(dec)) * sin(rad_to_deg(ra))/tan(parallax)
+	var z = sin(rad_to_deg(dec))/tan(parallax)
 	return Vector3(x,y,z)
 
 func _on_load_exoplanet(planet_name):
