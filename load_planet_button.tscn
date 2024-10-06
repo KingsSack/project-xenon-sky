@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnn7tdf0xa0j4"]
+[gd_scene load_steps=7 format=3 uid="uid://bn8f5vug4o2os"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_1kn8p"]
+[ext_resource type="Script" path="res://scripts/new_exoplanet.gd" id="2_pno2c"]
 
 [sub_resource type="Theme" id="Theme_em32u"]
 default_font = ExtResource("1_1kn8p")
@@ -36,3 +37,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
 text = "exoplanet1"
+script = ExtResource("2_pno2c")
+
+[connection signal="pressed" from="." to="." method="_on_load_exoplanet_pressed"]
