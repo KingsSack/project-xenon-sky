@@ -11,6 +11,9 @@ var star_button_scene := preload("res://star_button.tscn")
 var exoplanets = {}
 var stars = {}
 
+var exoplanet_data_recieved := false
+var star_data_recieved := false
+
 signal exoplanet_data_loaded(data)
 signal star_data_loaded(data)
 
@@ -44,19 +47,23 @@ func _on_query_completed(_result, response_code, _headers, body, key):
 			print("Error parsing JSON: ", error)
 	else:
 		print("Query failed with status: ", response_code)
+	
+	if exoplanet_data_recieved and star_data_recieved:
+		$CanvasLayer.remove_child(loading)
 
 func _on_exoplanet_data_loaded(data):
 	for exoplanet in data:
 		create_exoplanet_button(exoplanet["pl_name"])
 		exoplanets[exoplanet["pl_name"]] = [exoplanet["ra"], exoplanet["dec"], exoplanet["sy_plx"]]
 		# print("Exoplanet: ", exoplanet["pl_name"], " at (", exoplanet["ra"], ", ", exoplanet["dec"], ") with parallax: ", exoplanet["sy_plx"])
+	exoplanet_data_recieved = true
 	print("Loaded ", len(exoplanets), " exoplanets")
-	$CanvasLayer.remove_child(loading)
 
 func _on_star_data_loaded(data):
 	for star in data["data"]:
 		stars[star[0]] = get_pos(star[1], star[2], star[3])
-		print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
+		# print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
+	star_data_recieved = true
 	print("Loaded ", len(stars), " stars")
 
 func create_exoplanet_button(planet_name):
