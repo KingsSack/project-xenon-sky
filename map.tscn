@@ -27,13 +27,13 @@ camera = NodePath("../WorldEnvironment/Camera3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]
-
 [node name="StarButtons" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]
 
 [connection signal="exoplanet_data_loaded" from="." to="." method="_on_exoplanet_data_loaded"]
 [connection signal="star_data_loaded" from="." to="." method="_on_star_data_loaded"]
