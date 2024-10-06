@@ -51,7 +51,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_gd5qb")
-tween_intensity = 1.2
+tween_intensity = 2.0
 tween_duration = 0.3
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
