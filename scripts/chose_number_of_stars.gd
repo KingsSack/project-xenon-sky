@@ -1,6 +1,4 @@
 extends SpinBox
 
-signal load_stars(amount)
-
-func _on_tree_exiting():
-	load_stars.emit(get_value())
+func _on_exit_tree():
+	Global.max_stars = get_value()

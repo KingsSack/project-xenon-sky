@@ -1,5 +1,7 @@
 extends Node
 
+var max_stars : int
+
 signal exoplanet_changed(planet_name)
 
 var current_exoplanet = ""

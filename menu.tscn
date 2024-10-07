@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0crona147fot"]
+[gd_scene load_steps=11 format=3 uid="uid://c0crona147fot"]
 
 [ext_resource type="Script" path="res://scripts/button_animation.gd" id="1_s7q3t"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="2_jfhxf"]
 [ext_resource type="Texture2D" uid="uid://dddm1npearao6" path="res://assets/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2dldHR5aW1hZ2VzLTU0MTM4NTg1Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH19fQ==.webp" id="3_xv74u"]
+[ext_resource type="Script" path="res://scripts/chose_number_of_stars.gd" id="5_pgktg"]
 [ext_resource type="FontFile" uid="uid://dy5xvgxsl6fii" path="res://assets/Roboto Mono/static/RobotoMono-Bold.ttf" id="4_xaoy0"]
 [ext_resource type="FontFile" uid="uid://c2x5ex4wwhhg0" path="res://assets/Roboto Mono/static/RobotoMono-Medium.ttf" id="5_lg1ty"]
 
@@ -102,6 +103,7 @@ min_value = 500.0
 max_value = 2e+09
 step = 100.0
 value = 1000.0
+script = ExtResource("5_pgktg")
 
 [node name="Label3" type="Label" parent="Control"]
 layout_mode = 0
@@ -112,3 +114,4 @@ offset_bottom = 129.0
 text = "number of stars"
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_begin_pressed"]
+[connection signal="tree_exited" from="Control/SpinBox" to="Control/SpinBox" method="_on_exit_tree"]

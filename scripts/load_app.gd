@@ -15,10 +15,9 @@ var stars = {}
 
 var max_exoplanet_data := 80
 var exoplanet_data_recieved := 0
-var max_star_data:int
+@onready var max_star_data := Global.max_stars
 var star_data_recieved := 0
-func _on_load_stars(amount):
-	max_star_data = amount
+
 signal exoplanet_data_loaded(data)
 signal star_data_loaded(data)
 
@@ -81,7 +80,6 @@ func _on_star_data_loaded(data):
 	
 	if (len(stars) < max_star_data):
 		query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+50+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>"+str(max_para)+"+ORDER+BY+parallax&format=json", "stars")
-	
 
 func create_exoplanet_button(planet_name):
 	var button_instance = button_scene.instantiate()
