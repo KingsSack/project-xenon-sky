@@ -118,8 +118,8 @@ func _on_load_exoplanet(planet_name):
 	for star in stars:
 		var star_pos = stars[star]
 		star_pos -= pos
-		star_pos *= 100
-		if (star_pos.length() < 100):
+		star_pos /= 10000
+		if (true): # (star_pos.length() < 100):
 			var new_star_scene = star_scene.instantiate()
 			new_star_scene.star_name = star
 			new_star_scene.translate(star_pos)
@@ -145,8 +145,8 @@ func reload():
 		if (typeof(pos) == TYPE_INT):
 			var star_pos = stars[star]
 			star_pos -= pos
-			star_pos *= 100
-			if (star_pos.length()<100):
+			star_pos /= 10000
+			if (true): # (star_pos.length()<100):
 				var new_star_scene = star_scene.instantiate()
 				new_star_scene.translate(star_pos)
 				$Node.add_child(new_star_scene)
