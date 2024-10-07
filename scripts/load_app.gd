@@ -122,16 +122,16 @@ func _on_load_exoplanet(planet_name):
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
 
 func reload():
-	print("reloading")
-
-	for child in $Node.get_children():
-		child.queue_free()
-
-	for child in $CanvasLayer/Control/Control.get_children():
-		child.queue_free()
-	
-
 	for star in stars:
+		
+		print("reloading")
+
+		for child in $Node.get_children():
+			child.queue_free()
+
+		for child in $CanvasLayer/Control/Control.get_children():
+			child.queue_free()
+			
 		if (typeof(pos) == TYPE_INT):
 			var star_pos = stars[star]
 			star_pos -= pos
