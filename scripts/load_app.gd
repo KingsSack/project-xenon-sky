@@ -26,6 +26,7 @@ func _ready():
 	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+80+pl_name,ra,dec,sy_plx,pl_masse+FROM+ps+WHERE+pl_masse+IS+NOT+NULL+ORDER+BY+pl_name&format=json", "exoplanets")
 	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+100+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>0+ORDER+BY+parallax&format=json", "stars")
 
+# begins a table access proticol query
 func query_database(url, key):
 	var headers = []
 	var request = HTTPRequest.new()
@@ -53,6 +54,7 @@ func _on_query_completed(result, response_code, _headers, body, key, url):
 	if $CanvasLayer.get_child_count() > 0:
 		$CanvasLayer.remove_child(loading)
 
+# executes after query for exoplanets
 func _on_exoplanet_data_loaded(data):
 	for exoplanet in data:
 		create_exoplanet_button(exoplanet["pl_name"])
@@ -62,6 +64,7 @@ func _on_exoplanet_data_loaded(data):
 	exoplanet_data_recieved = true
 	print("Loaded ", len(exoplanets), " exoplanets")
 
+# executes after query for stars
 func _on_star_data_loaded(data):
 	var max_para
 	for star in data["data"]:
@@ -81,6 +84,7 @@ func create_exoplanet_button(planet_name):
 	button_instance.text = planet_name
 	$CanvasLayer/Control/ScrollContainer/VBoxContainer.add_child(button_instance)
 
+# math for possition based on earth
 func get_pos(ra, dec, parallax):
 	# real:
 	var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
@@ -88,8 +92,10 @@ func get_pos(ra, dec, parallax):
 	var z = sin(deg_to_rad(dec))/tan(parallax)
 	return Vector3(x, y, z)
 
+# outside of main loading script so it can be acessed by reload
 var pos
 
+# instanciates the scene whenever the exoplanet is switched
 func _on_load_exoplanet(planet_name):
 	pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
 	
@@ -121,6 +127,7 @@ func _on_load_exoplanet(planet_name):
 			$CanvasLayer/Control/Control.add_child(new_star_button_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
 
+# instanciates scene without switching exoplanets
 func reload():
 	for star in stars:
 		
