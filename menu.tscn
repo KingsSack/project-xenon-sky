@@ -52,8 +52,8 @@ tween_duration = 0.3
 layout_mode = 0
 offset_left = -729.0
 offset_top = -461.0
-offset_right = 717.0
-offset_bottom = 471.0
+offset_right = 725.0
+offset_bottom = 476.0
 texture = ExtResource("3_xv74u")
 
 [node name="Label" type="Label" parent="Control"]
