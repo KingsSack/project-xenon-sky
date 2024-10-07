@@ -95,7 +95,7 @@ func _on_load_exoplanet(planet_name):
 	
 	$CanvasLayer/Control/Label2.change_info(exoplanet_mass[planet_name])
 	
-	# print("Loading exoplanet: ", planet_name, " at ", pos)
+	print("Loading exoplanet: ", planet_name, " at ", pos)
 
 	for child in $Node.get_children():
 		child.queue_free()
@@ -122,7 +122,7 @@ func _on_load_exoplanet(planet_name):
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
 
 func reload():
-	# print("Loading exoplanet: ", planet_name, " at ", pos)
+	print("reloading")
 
 	for child in $Node.get_children():
 		child.queue_free()
@@ -130,8 +130,6 @@ func reload():
 	for child in $CanvasLayer/Control/Control.get_children():
 		child.queue_free()
 	
-	for child in $Constelations.get_children():
-		child.queue_free()
 
 	for star in stars:
 		if (typeof(pos) == TYPE_INT):
