@@ -30,7 +30,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byrjx"]
-bg_color = Color(0.6, 0.6, 1, 1)
+bg_color = Color(0.635294, 0.682353, 1, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -94,9 +94,7 @@ offset_left = -93.0
 offset_top = -31.0
 offset_right = 92.0
 offset_bottom = 32.0
-theme_override_colors/font_hover_color = Color(0, 0.655582, 0, 1)
-theme_override_fonts/font = ExtResource("2_jfhxf")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 theme_override_styles/hover = SubResource("StyleBoxFlat_g1400")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vtsjs")
 theme_override_styles/normal = SubResource("StyleBoxFlat_byrjx")

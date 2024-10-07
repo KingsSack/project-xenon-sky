@@ -14,10 +14,10 @@ font = ExtResource("1_lon3s")
 font_size = 85
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tisdd"]
-bg_color = Color(0.501189, 0.548072, 1, 1)
+bg_color = Color(0.634704, 0.684206, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjie"]
-bg_color = Color(0.591768, 0.510709, 1, 1)
+bg_color = Color(0.509774, 0.0196683, 1, 1)
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
