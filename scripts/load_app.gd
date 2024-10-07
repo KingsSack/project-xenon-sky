@@ -15,7 +15,7 @@ var stars = {}
 
 var max_exoplanet_data := 80
 var exoplanet_data_recieved := 0
-@onready var max_star_data := Global.max_stars
+@onready var max_star_data = Global.max_stars
 var star_data_recieved := 0
 
 signal exoplanet_data_loaded(data)
