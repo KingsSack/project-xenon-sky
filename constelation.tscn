@@ -1,21 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8ceguxn1ll7j"]
+[gd_scene load_steps=6 format=3 uid="uid://b8ceguxn1ll7j"]
 
 [ext_resource type="Script" path="res://scripts/new_constelation.gd" id="1_88xb4"]
+[ext_resource type="FontFile" uid="uid://dy5xvgxsl6fii" path="res://assets/Roboto Mono/static/RobotoMono-Bold.ttf" id="2_qf7qm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5tif"]
+bg_color = Color(0.439216, 0.188235, 0.988235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b4as"]
+bg_color = Color(0.533333, 0.427451, 0.996078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lw8xq"]
+bg_color = Color(0.635294, 0.682353, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Constelation" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_88xb4")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="LineEdit" type="LineEdit" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 67.0625
 offset_bottom = 31.0
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("2_qf7qm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p5tif")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6b4as")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lw8xq")
+text = "Complete"
+
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

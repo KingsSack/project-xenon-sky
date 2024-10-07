@@ -14,7 +14,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
 font = ExtResource("3_e24tt")
-font_size = 60
+font_size = 32
 
 [sub_resource type="GDScript" id="GDScript_ht13s"]
 
@@ -23,10 +23,10 @@ script = SubResource("GDScript_ht13s")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnglk"]
 bg_color = Color(0.635294, 0.682353, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp8xg"]
 bg_color = Color(0.635294, 0.682353, 1, 1)
@@ -84,7 +84,7 @@ offset_right = 1395.0
 offset_bottom = 844.732
 theme = SubResource("Theme_7s5nk")
 theme_override_fonts/font = ExtResource("5_ynn1k")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
 horizontal_alignment = 1
 vertical_alignment = 1
