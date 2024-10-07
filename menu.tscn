@@ -108,9 +108,9 @@ offset_top = 103.0
 offset_right = 62.0625
 offset_bottom = 134.0
 min_value = 500.0
-max_value = 500.0
+max_value = 2e+09
 step = 100.0
-value = 500.0
+value = 1000.0
 
 [node name="Label3" type="Label" parent="Control"]
 layout_mode = 0
