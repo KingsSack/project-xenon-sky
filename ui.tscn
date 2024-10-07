@@ -1,18 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnss1urf5ebkf"]
+[gd_scene load_steps=17 format=3 uid="uid://bnss1urf5ebkf"]
 
-[ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_28hgo"]
 [ext_resource type="PackedScene" uid="uid://dw3jlg0bslru" path="res://sidebar.tscn" id="1_84egq"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
+[ext_resource type="FontFile" uid="uid://bknsc4se0l6km" path="res://assets/Roboto Mono/static/RobotoMono-BoldItalic.ttf" id="3_e24tt"]
 [ext_resource type="Script" path="res://scripts/get_exoplanet_name.gd" id="4_jb8p2"]
 [ext_resource type="Script" path="res://scripts/planet_info.gd" id="5_2mgws"]
 [ext_resource type="Script" path="res://scripts/fov_slider.gd" id="5_tde2r"]
+[ext_resource type="FontFile" uid="uid://camklexcy7633" path="res://assets/Roboto Mono/static/RobotoMono-SemiBold.ttf" id="5_ynn1k"]
+[ext_resource type="FontFile" uid="uid://clxqqlkx8c5mu" path="res://assets/Roboto Mono/static/RobotoMono-Light.ttf" id="7_5pymp"]
 [ext_resource type="Script" path="res://scripts/constelation_editor.gd" id="7_x2pmn"]
+[ext_resource type="FontFile" uid="uid://c2x5ex4wwhhg0" path="res://assets/Roboto Mono/static/RobotoMono-Medium.ttf" id="8_n4so4"]
+[ext_resource type="FontFile" uid="uid://bt6x8esh5m0ca" path="res://assets/Roboto Mono/static/RobotoMono-Regular.ttf" id="10_gfv2q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
-font = ExtResource("1_28hgo")
+font = ExtResource("3_e24tt")
 font_size = 60
-outline_size = 10
-outline_color = Color(0.815534, 0.518011, 0.861554, 1)
 
 [sub_resource type="GDScript" id="GDScript_ht13s"]
 
@@ -20,22 +22,18 @@ outline_color = Color(0.815534, 0.518011, 0.861554, 1)
 script = SubResource("GDScript_ht13s")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnglk"]
-bg_color = Color(0.408937, 0.619789, 0.825288, 1)
+bg_color = Color(0.635294, 0.682353, 1, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp8xg"]
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.635294, 0.682353, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -85,8 +83,8 @@ offset_top = 748.0
 offset_right = 1395.0
 offset_bottom = 844.732
 theme = SubResource("Theme_7s5nk")
-theme_override_fonts/font = ExtResource("1_28hgo")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("5_ynn1k")
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnglk")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,16 +96,26 @@ offset_left = 5.0
 offset_top = 22.0
 offset_right = 300.0
 offset_bottom = 59.0
-theme_override_fonts/font = ExtResource("1_28hgo")
+theme_override_fonts/font = ExtResource("7_5pymp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tp8xg")
 placeholder_text = " Search"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 18.0
+offset_right = 347.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("8_n4so4")
+text = "Hide"
+horizontal_alignment = 1
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
 offset_left = 304.0
-offset_top = 28.0
+offset_top = 39.0
 offset_right = 348.0
-offset_bottom = 52.0
+offset_bottom = 63.0
 
 [node name="VSlider" type="VSlider" parent="."]
 layout_mode = 0
@@ -124,10 +132,11 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 1097.0
+offset_left = 1068.0
 offset_top = 699.0
-offset_right = 1246.0
+offset_right = 1251.0
 offset_bottom = 722.0
+theme_override_fonts/font = ExtResource("10_gfv2q")
 text = "Constelation Editor"
 
 [node name="CheckButton" type="CheckButton" parent="Control2"]

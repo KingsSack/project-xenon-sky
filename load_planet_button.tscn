@@ -1,37 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnn7tdf0xa0j4"]
+[gd_scene load_steps=8 format=3 uid="uid://bc14yxvaeert4"]
 
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_1kn8p"]
 [ext_resource type="Script" path="res://scripts/new_exoplanet.gd" id="2_pno2c"]
+[ext_resource type="FontFile" uid="uid://camklexcy7633" path="res://assets/Roboto Mono/static/RobotoMono-SemiBold.ttf" id="2_vubku"]
 
 [sub_resource type="Theme" id="Theme_em32u"]
 default_font = ExtResource("1_1kn8p")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip4tb"]
-bg_color = Color(0.803922, 0.6, 1, 1)
+bg_color = Color(0.439216, 0.188235, 0.988235, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ai1i"]
-bg_color = Color(7.84531e-06, 0.83784, 0, 1)
+bg_color = Color(0.533333, 0.427451, 0.996078, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd3ht"]
-bg_color = Color(0.803922, 0.6, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+bg_color = Color(0.635294, 0.682353, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(300, 100)
+offset_right = 300.0
+offset_bottom = 100.0
 theme = SubResource("Theme_em32u")
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vubku")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
