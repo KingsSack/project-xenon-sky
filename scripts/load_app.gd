@@ -15,9 +15,10 @@ var stars = {}
 
 var max_exoplanet_data := 80
 var exoplanet_data_recieved := 0
-var max_star_data := 1000
+var max_star_data:int
 var star_data_recieved := 0
-
+func _on_load_stars(amount):
+	max_star_data = amount
 signal exoplanet_data_loaded(data)
 signal star_data_loaded(data)
 

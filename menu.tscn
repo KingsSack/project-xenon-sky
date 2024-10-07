@@ -101,4 +101,23 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_byrjx")
 text = "Begin"
 script = ExtResource("1_yrlt3")
 
+[node name="SpinBox" type="SpinBox" parent="Control"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 103.0
+offset_right = 62.0625
+offset_bottom = 134.0
+min_value = 500.0
+max_value = 500.0
+step = 100.0
+value = 500.0
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -167.0
+offset_top = 106.0
+offset_right = -43.0
+offset_bottom = 129.0
+text = "number of stars"
+
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_begin_pressed"]
