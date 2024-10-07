@@ -24,7 +24,7 @@ func _ready():
 	$CanvasLayer.add_child(loading)
 	Global.exoplanet_changed.connect(_on_load_exoplanet)
 	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+80+pl_name,ra,dec,sy_plx,pl_masse+FROM+ps+WHERE+pl_masse+IS+NOT+NULL+ORDER+BY+pl_name&format=json", "exoplanets")
-	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+200+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax+IS+NOT+NULL+ORDER+BY+source_id&format=json", "stars")
+	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+100+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>0+ORDER+BY+parallax&format=json", "stars")
 
 func query_database(url, key):
 	var headers = []
@@ -45,6 +45,7 @@ func _on_query_completed(_result, response_code, _headers, body, key, url):
 				exoplanet_data_loaded.emit(json.data)
 			elif key == "stars":
 				star_data_loaded.emit(json.data)
+				
 		else:
 			print("Error parsing JSON: ", error)
 	elif response_code == 0:
@@ -66,11 +67,18 @@ func _on_exoplanet_data_loaded(data):
 	print("Loaded ", len(exoplanets), " exoplanets")
 
 func _on_star_data_loaded(data):
+	var max_para
 	for star in data["data"]:
 		stars[star[0]] = get_pos(star[1], star[2], star[3])
 		# print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
+		max_para = star[3]
+	if star_data_recieved:
+		reload()
 	star_data_recieved = true
 	print("Loaded ", len(stars), " stars")
+	if (len(stars)<1000):
+		query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+100+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>"+str(max_para)+"+ORDER+BY+parallax&format=json", "stars")
+	
 
 func create_exoplanet_button(planet_name):
 	var button_instance = button_scene.instantiate()
@@ -79,17 +87,15 @@ func create_exoplanet_button(planet_name):
 
 func get_pos(ra, dec, parallax):
 	# real:
-	# var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
-	# var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
-	# var z = sin(deg_to_rad(dec))/tan(parallax)
-	# fake:
-	var x = cos(rad_to_deg(dec)) * cos(rad_to_deg(ra))/tan(parallax)
-	var y = cos(rad_to_deg(dec)) * sin(rad_to_deg(ra))/tan(parallax)
-	var z = sin(rad_to_deg(dec))/tan(parallax)
+	var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
+	var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
+	var z = sin(deg_to_rad(dec))/tan(parallax)
 	return Vector3(x, y, z)
 
+var pos
+
 func _on_load_exoplanet(planet_name):
-	var pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
+	pos = get_pos(exoplanets[planet_name][0], exoplanets[planet_name][1], exoplanets[planet_name][2])
 	
 	$CanvasLayer/Control/Label2.change_info(exoplanet_mass[planet_name])
 	
@@ -118,3 +124,30 @@ func _on_load_exoplanet(planet_name):
 			new_star_button_scene.star = new_star_scene
 			$CanvasLayer/Control/Control.add_child(new_star_button_scene)
 		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
+
+func reload():
+	# print("Loading exoplanet: ", planet_name, " at ", pos)
+
+	for child in $Node.get_children():
+		child.queue_free()
+
+	for child in $CanvasLayer/Control/Control.get_children():
+		child.queue_free()
+	
+	for child in $Constelations.get_children():
+		child.queue_free()
+
+	for star in stars:
+		if (typeof(pos) == TYPE_INT):
+			var star_pos = stars[star]
+			star_pos -= pos
+			star_pos *= 100
+			if (star_pos.length()<100):
+				var new_star_scene = star_scene.instantiate()
+				new_star_scene.translate(star_pos)
+				$Node.add_child(new_star_scene)
+				
+				var new_star_button_scene = star_button_scene.instantiate()
+				new_star_button_scene.star = new_star_scene
+				$CanvasLayer/Control/Control.add_child(new_star_button_scene)
+			# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
