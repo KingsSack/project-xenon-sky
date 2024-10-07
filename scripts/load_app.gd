@@ -28,33 +28,29 @@ func _ready():
 
 func query_database(url, key):
 	var headers = []
-	var response = HTTPRequest.new()
-	add_child(response)
-	response.connect("request_completed", Callable(self, "_on_query_completed").bind(key, url))
-	response.request(url, headers)
+	var request = HTTPRequest.new()
+	request.request_completed.connect(self._on_query_completed.bind(key, url))
+	self.add_child(request)
+	request.request(url, headers)
 
-func _on_query_completed(_result, response_code, _headers, body, key, url):
-	# print("Raw body: ", body.get_string_from_utf8())
+func _on_query_completed(result, response_code, _headers, body, key, url):
 	if response_code == 200:
 		var json = JSON.new()
-		var decoded_body = body.get_string_from_utf8()
-		var error = json.parse(decoded_body)
-		if error == OK:
-			# print("Successfully parsed JSON: ", json.data)
+		json.parse(body.get_string_from_utf8())
+		if json.error == OK:
 			if key == "exoplanets":
-				exoplanet_data_loaded.emit(json.data)
+				exoplanet_data_loaded.emit(json.result)
 			elif key == "stars":
-				star_data_loaded.emit(json.data)
-				
+				star_data_loaded.emit(json.result)
 		else:
-			print("Error parsing JSON: ", error)
+			print("Error parsing JSON: ", json.error_string)
 	elif response_code == 0:
 		print("Query failed with status 0, retrying...")
 		query_database(url, key)
 	else:
 		print("Query failed with status: ", response_code)
 	
-	if exoplanet_data_recieved and star_data_recieved:
+	if $CanvasLayer.get_child_count() > 0:
 		$CanvasLayer.remove_child(loading)
 
 func _on_exoplanet_data_loaded(data):

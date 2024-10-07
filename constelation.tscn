@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://b8ceguxn1ll7j"]
+[gd_scene load_steps=2 format=3 uid="uid://b8ceguxn1ll7j"]
 
-[node name="Constelation" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/new_constelation.gd" id="1_88xb4"]
+
+[node name="Constelation" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_88xb4")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 67.0625
+offset_bottom = 31.0
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
