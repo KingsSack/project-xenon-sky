@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0crona147fot"]
+[gd_scene load_steps=10 format=3 uid="uid://c0crona147fot"]
 
 [ext_resource type="Script" path="res://scripts/button_animation.gd" id="1_s7q3t"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_yrlt3"]
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="2_jfhxf"]
-[ext_resource type="Texture2D" uid="uid://c7tw50gdnw3d2" path="res://39dd9db104baf2b9a229fcb5ee1b96db.jpg" id="2_xrhj7"]
-[ext_resource type="Texture2D" uid="uid://dddm1npearao6" path="res://eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2dldHR5aW1hZ2VzLTU0MTM4NTg1Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH19fQ==.webp" id="3_xv74u"]
+[ext_resource type="Texture2D" uid="uid://dddm1npearao6" path="res://assets/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2dldHR5aW1hZ2VzLTU0MTM4NTg1Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH19fQ==.webp" id="3_xv74u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_17hsh"]
 font_size = 128
@@ -56,7 +55,7 @@ offset_left = -756.0
 offset_top = -471.0
 offset_right = 729.0
 offset_bottom = 483.0
-texture = ExtResource("2_xrhj7")
+texture = ExtResource("3_xv74u")
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 visible = false
