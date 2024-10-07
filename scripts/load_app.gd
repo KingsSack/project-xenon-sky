@@ -13,8 +13,10 @@ var exoplanet_mass = {}
 
 var stars = {}
 
-var exoplanet_data_recieved := false
-var star_data_recieved := false
+var max_exoplanet_data := 80
+var exoplanet_data_recieved := 0
+var max_star_data := 1000
+var star_data_recieved := 0
 
 signal exoplanet_data_loaded(data)
 signal star_data_loaded(data)
@@ -34,24 +36,24 @@ func query_database(url, key):
 	self.add_child(request)
 	request.request(url, headers)
 
-func _on_query_completed(result, response_code, _headers, body, key, url):
+func _on_query_completed(_result, response_code, _headers, body, key, url):
 	if response_code == 200:
 		var json = JSON.new()
-		json.parse(body.get_string_from_utf8())
-		if json.error == OK:
+		var error = json.parse(body.get_string_from_utf8())
+		if error == OK:
 			if key == "exoplanets":
-				exoplanet_data_loaded.emit(json.result)
+				exoplanet_data_loaded.emit(json.data)
 			elif key == "stars":
-				star_data_loaded.emit(json.result)
+				star_data_loaded.emit(json.data)
 		else:
-			print("Error parsing JSON: ", json.error_string)
+			print("Error parsing JSON: ", error)
 	elif response_code == 0:
 		print("Query failed with status 0, retrying...")
 		query_database(url, key)
 	else:
 		print("Query failed with status: ", response_code)
 	
-	if $CanvasLayer.get_child_count() > 0:
+	if exoplanet_data_recieved + star_data_recieved >= max_exoplanet_data + max_star_data:
 		$CanvasLayer.remove_child(loading)
 
 # executes after query for exoplanets
@@ -61,7 +63,8 @@ func _on_exoplanet_data_loaded(data):
 		exoplanets[exoplanet["pl_name"]] = [exoplanet["ra"], exoplanet["dec"], exoplanet["sy_plx"]]
 		exoplanet_mass[exoplanet["pl_name"]] = exoplanet["pl_masse"]
 		# print("Exoplanet: ", exoplanet["pl_name"], " at (", exoplanet["ra"], ", ", exoplanet["dec"], ") with parallax: ", exoplanet["sy_plx"])
-	exoplanet_data_recieved = true
+		exoplanet_data_recieved += 1
+	
 	print("Loaded ", len(exoplanets), " exoplanets")
 
 # executes after query for stars
@@ -71,12 +74,12 @@ func _on_star_data_loaded(data):
 		stars[star[0]] = get_pos(star[1], star[2], star[3])
 		# print("Star: ", star[0], " at (", star[1], ", ", star[2], ") with parallax: ", star[3])
 		max_para = star[3]
-	if star_data_recieved:
-		reload()
-	star_data_recieved = true
+		star_data_recieved += 1
+	
 	print("Loaded ", len(stars), " stars")
-	if (len(stars)<1000):
-		query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+100+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>"+str(max_para)+"+ORDER+BY+parallax&format=json", "stars")
+	
+	if (len(stars) < max_star_data):
+		query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+50+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>"+str(max_para)+"+ORDER+BY+parallax&format=json", "stars")
 	
 
 func create_exoplanet_button(planet_name):

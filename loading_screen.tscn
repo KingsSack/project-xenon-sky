@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cds54em2tc1hg"]
+[gd_scene load_steps=7 format=3 uid="uid://cds54em2tc1hg"]
 
-[ext_resource type="Script" path="res://scripts/new_constelation.gd" id="1_2de7o"]
 [ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_lon3s"]
-[ext_resource type="Script" path="res://loading_progress.gd" id="2_vrajy"]
+[ext_resource type="Script" path="res://scripts/loading_progress.gd" id="2_vrajy"]
 
 [sub_resource type="Gradient" id="Gradient_ja0gq"]
 offsets = PackedFloat32Array(0.996753, 1)
@@ -28,7 +27,6 @@ offset_right = 3.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2de7o")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
