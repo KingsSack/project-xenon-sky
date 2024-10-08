@@ -14,8 +14,8 @@ func _on_line_edit_text_submitted(new_text):
 	$LineEdit.hide()
 	constelation_name = new_text
 	var label = constelation_label_scene.instantiate()
-	label.pos = pos_3D
-	label.get_child(0).text = constelation_name
+	label.position = pos_3D
+	label.text = constelation_name
 	get_node("/root/Node3D/Constelations").add_child(label)
 
 func _on_button_pressed():

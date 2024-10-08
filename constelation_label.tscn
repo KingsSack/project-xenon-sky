@@ -1,16 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://joikfb8cmfq1"]
+[gd_scene format=3 uid="uid://joikfb8cmfq1"]
 
-[ext_resource type="Script" path="res://scripts/constelation_label.gd" id="1_otpns"]
-[ext_resource type="FontFile" uid="uid://c2x5ex4wwhhg0" path="res://assets/Roboto Mono/static/RobotoMono-Medium.ttf" id="2_var2e"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_b31p1"]
-
-[node name="ConstelationLabel" type="MeshInstance3D"]
-mesh = SubResource("PlaneMesh_b31p1")
-script = ExtResource("1_otpns")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_var2e")
-theme_override_font_sizes/font_size = 24
+[node name="ConstelationLabel" type="Label3D"]
+billboard = 1
+font_size = 36

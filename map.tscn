@@ -29,7 +29,7 @@ script = ExtResource("2_0xmat")
 
 [node name="Node" type="Node" parent="."]
 
-[node name="Constelations" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+[node name="Constelations" type="Node" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("3_cj2p7")
 camera = NodePath("../WorldEnvironment/Camera3D")
 
