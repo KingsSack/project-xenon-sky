@@ -43,6 +43,6 @@ func _on_creae_constelation(pos1: Vector3, pos2: Vector3):
 
 func _on_complete_constelation():
 	print("Completing constelation...")
-	current_constelation.get_child(2).hide()
-	current_constelation.get_child(1).show()
+	current_constelation.get_child(1).hide()
+	current_constelation.get_child(0).show()
 	current_constelation = null
