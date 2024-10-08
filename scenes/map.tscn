@@ -19,7 +19,7 @@ environment = SubResource("Environment_7ph6w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("3_2l4g3")
 
-[node name="Node" type="Node" parent="."]
+[node name="Stars" type="Node" parent="."]
 
 [node name="Constelations" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("4_5odx2")

@@ -8,5 +8,5 @@ func _process(_delta):
 func _on_pressed():
 	get_node("/root/Node3D/CanvasLayer/Control/Label2").text = "Selected star: " + star.star_name
 	
-	if get_node("/root/Node3D/CanvasLayer/Control/Control2/CheckButton").editor_enabled:
+	if get_node("/root/Node3D/CanvasLayer/Control/Control2").editor_enabled:
 		Global.add_star_to_constelation(star)

@@ -21,4 +21,8 @@ func add_star_to_constelation(star : Node3D):
 		create_constelation.emit(selected_stars[0].global_transform.origin, selected_stars[1].global_transform.origin)
 		selected_stars = []
 
-signal complete_constelation
+signal start_constelation()
+
+var last_constelation_pos : Vector3
+
+signal complete_constelation()

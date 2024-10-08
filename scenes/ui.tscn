@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnss1urf5ebkf"]
+[gd_scene load_steps=22 format=3 uid="uid://bnss1urf5ebkf"]
 
 [ext_resource type="PackedScene" uid="uid://bwdy1bhcexh7f" path="res://scenes/sidebar.tscn" id="1_84egq"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/constelation_editor.gd" id="7_x2pmn"]
 [ext_resource type="FontFile" uid="uid://c2x5ex4wwhhg0" path="res://assets/Roboto Mono/static/RobotoMono-Medium.ttf" id="8_n4so4"]
 [ext_resource type="FontFile" uid="uid://bt6x8esh5m0ca" path="res://assets/Roboto Mono/static/RobotoMono-Regular.ttf" id="10_gfv2q"]
+[ext_resource type="FontFile" uid="uid://dy5xvgxsl6fii" path="res://assets/Roboto Mono/static/RobotoMono-Bold.ttf" id="12_1mhjs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o828k"]
 font = ExtResource("3_e24tt")
@@ -29,6 +30,38 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp8xg"]
+bg_color = Color(0.635294, 0.682353, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy8dj"]
+bg_color = Color(0.598786, 0.58455, 0.698526, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggnsk"]
+bg_color = Color(0.439216, 0.188235, 0.988235, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ls1m"]
+bg_color = Color(0.533333, 0.427451, 0.996078, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiewb"]
 bg_color = Color(0.635294, 0.682353, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
@@ -129,6 +162,7 @@ script = ExtResource("5_tde2r")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_x2pmn")
 
 [node name="Label" type="Label" parent="Control2"]
 layout_mode = 0
@@ -145,10 +179,35 @@ offset_left = 1249.0
 offset_top = 700.0
 offset_right = 1293.0
 offset_bottom = 724.0
-script = ExtResource("7_x2pmn")
+
+[node name="LineEdit" type="LineEdit" parent="Control2"]
+visible = false
+layout_mode = 0
+offset_left = 571.0
+offset_top = 408.0
+offset_right = 853.0
+offset_bottom = 439.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yy8dj")
+placeholder_text = "Name..."
+
+[node name="Button" type="Button" parent="Control2"]
+visible = false
+layout_mode = 0
+offset_left = 948.0
+offset_top = 690.0
+offset_right = 1054.0
+offset_bottom = 724.0
+theme_override_fonts/font = ExtResource("12_1mhjs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ggnsk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6ls1m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eiewb")
+disabled = true
+text = "Complete"
 
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="drag_ended" from="VSlider" to="VSlider" method="_on_drag_ended"]
 [connection signal="drag_started" from="VSlider" to="VSlider" method="_on_drag_started"]
-[connection signal="toggled" from="Control2/CheckButton" to="Control2/CheckButton" method="_on_toggled"]
+[connection signal="toggled" from="Control2/CheckButton" to="Control2" method="_on_toggled"]
+[connection signal="text_submitted" from="Control2/LineEdit" to="Control2" method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Control2/Button" to="Control2" method="_on_button_pressed"]
