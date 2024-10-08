@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdfjsmgb22nto"]
+
+[ext_resource type="PackedScene" uid="uid://c0crona147fot" path="res://scenes/menu.tscn" id="1_1ru6p"]
+
+[node name="Main" type="Node"]
+
+[node name="Menu" parent="." instance=ExtResource("1_1ru6p")]
+position = Vector2(99.429, -139.075)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxr8klbcdq7bj"]
 
-[ext_resource type="Script" path="res://scripts/star.gd" id="1_h6gje"]
-[ext_resource type="Texture2D" uid="uid://ok8uj6hhbyk4" path="res://assets/star2.png" id="1_wdv6t"]
+[ext_resource type="Script" path="res://scripts/star.gd" id="1_hxqo8"]
+[ext_resource type="Texture2D" uid="uid://ok8uj6hhbyk4" path="res://assets/star2.png" id="2_tuc31"]
 
 [node name="Star" type="Node3D"]
-script = ExtResource("1_h6gje")
+script = ExtResource("1_hxqo8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 2.0
@@ -17,4 +17,4 @@ light_specular = 16.0
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 shaded = true
-texture = ExtResource("1_wdv6t")
+texture = ExtResource("2_tuc31")

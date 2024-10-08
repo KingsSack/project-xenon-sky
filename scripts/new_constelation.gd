@@ -1,6 +1,6 @@
 extends Control
 
-var constelation_label_scene := preload("res://constelation_label.tscn")
+var constelation_label_scene := preload("res://scenes/constelation_label.tscn")
 var lines = []
 var constelation_name : String
 var pos_3D : Vector3

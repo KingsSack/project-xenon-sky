@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bnss1urf5ebkf"]
 
-[ext_resource type="PackedScene" uid="uid://dw3jlg0bslru" path="res://sidebar.tscn" id="1_84egq"]
+[ext_resource type="PackedScene" uid="uid://bwdy1bhcexh7f" path="res://scenes/sidebar.tscn" id="1_84egq"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_kgh5u"]
 [ext_resource type="FontFile" uid="uid://bknsc4se0l6km" path="res://assets/Roboto Mono/static/RobotoMono-BoldItalic.ttf" id="3_e24tt"]
 [ext_resource type="Script" path="res://scripts/get_exoplanet_name.gd" id="4_jb8p2"]

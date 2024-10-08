@@ -2,7 +2,7 @@ extends Node
 
 @export var camera : Camera3D
 
-var constelation_scene := preload("res://constelation.tscn")
+var constelation_scene := preload("res://scenes/constelation.tscn")
 
 var star_one : String
 var current_constelation : Control

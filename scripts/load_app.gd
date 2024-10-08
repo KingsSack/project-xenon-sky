@@ -1,12 +1,12 @@
 extends Node3D
 
-var loading_scene := preload("res://loading_screen.tscn")
+var loading_scene := preload("res://scenes/loading_screen.tscn")
 var loading
 
-var button_scene := preload("res://load_planet_button.tscn")
+var button_scene := preload("res://scenes/load_planet_button.tscn")
 
-var star_scene := preload("res://star.tscn")
-var star_button_scene := preload("res://star_button.tscn")
+var star_scene := preload("res://scenes/star.tscn")
+var star_button_scene := preload("res://scenes/star_button.tscn")
 
 var exoplanets = {}
 var exoplanet_mass = {}

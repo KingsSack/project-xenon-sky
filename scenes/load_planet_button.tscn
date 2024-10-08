@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bc14yxvaeert4"]
 
-[ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_1kn8p"]
-[ext_resource type="Script" path="res://scripts/new_exoplanet.gd" id="2_pno2c"]
-[ext_resource type="FontFile" uid="uid://camklexcy7633" path="res://assets/Roboto Mono/static/RobotoMono-SemiBold.ttf" id="2_vubku"]
+[ext_resource type="FontFile" uid="uid://buh8lyi6jme71" path="res://assets/papyrus.ttf" id="1_idoln"]
+[ext_resource type="FontFile" uid="uid://camklexcy7633" path="res://assets/Roboto Mono/static/RobotoMono-SemiBold.ttf" id="2_dgw05"]
+[ext_resource type="Script" path="res://scripts/new_exoplanet.gd" id="3_2sqh0"]
 
 [sub_resource type="Theme" id="Theme_em32u"]
-default_font = ExtResource("1_1kn8p")
+default_font = ExtResource("1_idoln")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip4tb"]
 bg_color = Color(0.439216, 0.188235, 0.988235, 1)
@@ -33,11 +33,11 @@ custom_minimum_size = Vector2(300, 100)
 offset_right = 300.0
 offset_bottom = 100.0
 theme = SubResource("Theme_em32u")
-theme_override_fonts/font = ExtResource("2_vubku")
+theme_override_fonts/font = ExtResource("2_dgw05")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ip4tb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ai1i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xd3ht")
 text = "exoplanet1"
-script = ExtResource("2_pno2c")
+script = ExtResource("3_2sqh0")
 
 [connection signal="pressed" from="." to="." method="_on_load_exoplanet_pressed"]

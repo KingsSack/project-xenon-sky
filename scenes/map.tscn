@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://y46vex5hofai"]
 
-[ext_resource type="Script" path="res://scripts/load_app.gd" id="1_osuq4"]
-[ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_0xmat"]
-[ext_resource type="Texture2D" uid="uid://dc6qar2pe3urh" path="res://panoramas/IMG_8867.jpeg" id="2_xbwbj"]
-[ext_resource type="PackedScene" uid="uid://bnss1urf5ebkf" path="res://ui.tscn" id="3_7frv8"]
-[ext_resource type="Script" path="res://scripts/constelations.gd" id="3_cj2p7"]
+[ext_resource type="Script" path="res://scripts/load_app.gd" id="1_syain"]
+[ext_resource type="Texture2D" uid="uid://dc6qar2pe3urh" path="res://panoramas/IMG_8867.jpeg" id="2_7dhqm"]
+[ext_resource type="Script" path="res://scripts/camera_3d.gd" id="3_2l4g3"]
+[ext_resource type="Script" path="res://scripts/constelations.gd" id="4_5odx2"]
+[ext_resource type="PackedScene" uid="uid://bnss1urf5ebkf" path="res://scenes/ui.tscn" id="5_qxgpc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxq5t"]
-panorama = ExtResource("2_xbwbj")
+panorama = ExtResource("2_7dhqm")
 
 [sub_resource type="Sky" id="Sky_yqw8t"]
 sky_material = SubResource("PanoramaSkyMaterial_mxq5t")
@@ -18,24 +18,24 @@ sky = SubResource("Sky_yqw8t")
 glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_osuq4")
+script = ExtResource("1_syain")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7ph6w")
 
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.857563, 0, 0.51438, 0, 1, 0, -0.51438, 0, -0.857563, 0, 0, 0)
-script = ExtResource("2_0xmat")
+script = ExtResource("3_2l4g3")
 
 [node name="Node" type="Node" parent="."]
 
-[node name="Constelations" type="Node" parent="." node_paths=PackedStringArray("camera")]
-script = ExtResource("3_cj2p7")
+[node name="Constelations" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("4_5odx2")
 camera = NodePath("../WorldEnvironment/Camera3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("3_7frv8")]
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5_qxgpc")]
 
 [connection signal="exoplanet_data_loaded" from="." to="." method="_on_exoplanet_data_loaded"]
 [connection signal="star_data_loaded" from="." to="." method="_on_star_data_loaded"]

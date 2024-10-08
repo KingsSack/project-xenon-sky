@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cds54em2tc1hg"]
 
-[ext_resource type="FontFile" uid="uid://dy5xvgxsl6fii" path="res://assets/Roboto Mono/static/RobotoMono-Bold.ttf" id="1_ds8qc"]
-[ext_resource type="FontFile" uid="uid://c2x5ex4wwhhg0" path="res://assets/Roboto Mono/static/RobotoMono-Medium.ttf" id="2_kja4w"]
-[ext_resource type="Script" path="res://scripts/loading_progress.gd" id="2_vrajy"]
+[ext_resource type="FontFile" uid="uid://dy5xvgxsl6fii" path="res://assets/Roboto Mono/static/RobotoMono-Bold.ttf" id="1_fvfuh"]
+[ext_resource type="FontFile" uid="uid://c2x5ex4wwhhg0" path="res://assets/Roboto Mono/static/RobotoMono-Medium.ttf" id="2_48keb"]
+[ext_resource type="Script" path="res://scripts/loading_progress.gd" id="3_33852"]
 
 [sub_resource type="Gradient" id="Gradient_ja0gq"]
 offsets = PackedFloat32Array(0.996753, 1)
@@ -11,7 +11,7 @@ offsets = PackedFloat32Array(0.996753, 1)
 gradient = SubResource("Gradient_ja0gq")
 
 [sub_resource type="LabelSettings" id="LabelSettings_kihjf"]
-font = ExtResource("1_ds8qc")
+font = ExtResource("1_fvfuh")
 font_size = 98
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tisdd"]
@@ -64,7 +64,7 @@ offset_left = 585.0
 offset_top = 515.0
 offset_right = 836.0
 offset_bottom = 542.0
-theme_override_fonts/font = ExtResource("2_kja4w")
+theme_override_fonts/font = ExtResource("2_48keb")
 theme_override_styles/background = SubResource("StyleBoxFlat_tisdd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kdjie")
-script = ExtResource("2_vrajy")
+script = ExtResource("3_33852")
