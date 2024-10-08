@@ -166,12 +166,12 @@ script = ExtResource("7_x2pmn")
 
 [node name="Label" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 1068.0
-offset_top = 699.0
-offset_right = 1251.0
-offset_bottom = 722.0
+offset_left = 1060.0
+offset_top = 700.0
+offset_right = 1253.0
+offset_bottom = 723.0
 theme_override_fonts/font = ExtResource("10_gfv2q")
-text = "Constelation Editor"
+text = "Constellation Editor"
 
 [node name="CheckButton" type="CheckButton" parent="Control2"]
 layout_mode = 0
@@ -193,10 +193,10 @@ placeholder_text = "Name..."
 [node name="Button" type="Button" parent="Control2"]
 visible = false
 layout_mode = 0
-offset_left = 948.0
-offset_top = 690.0
-offset_right = 1054.0
-offset_bottom = 724.0
+offset_left = 944.0
+offset_top = 694.0
+offset_right = 1050.0
+offset_bottom = 728.0
 theme_override_fonts/font = ExtResource("12_1mhjs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ggnsk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6ls1m")
