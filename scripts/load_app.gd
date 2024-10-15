@@ -25,7 +25,7 @@ func _ready():
 	loading = loading_scene.instantiate()
 	$CanvasLayer.add_child(loading)
 	Global.exoplanet_changed.connect(_on_load_exoplanet)
-	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+80+pl_name,ra,dec,sy_plx,pl_masse+FROM+ps+WHERE+pl_masse+IS+NOT+NULL+ORDER+BY+pl_name&format=json", "exoplanets")
+	query_database("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+80+pl_name,ra,dec,sy_plx,pl_masse+FROM+ps+WHERE+pl_masse+IS+NOT+NULL+ORDER+BY+sy_plx&format=json", "exoplanets")
 	query_database("https://gea.esac.esa.int/tap-server/tap/sync?request=doQuery&lang=ADQL&query=SELECT+TOP+50+designation,ra,dec,parallax+FROM+gaiadr3.gaia_source+WHERE+parallax>0+ORDER+BY+parallax&format=json", "stars")
 
 # begins a table access proticol query
@@ -59,11 +59,12 @@ func _on_query_completed(_result, response_code, _headers, body, key, url):
 # executes after query for exoplanets
 func _on_exoplanet_data_loaded(data):
 	for exoplanet in data:
-		create_exoplanet_button(exoplanet["pl_name"])
-		exoplanets[exoplanet["pl_name"]] = [exoplanet["ra"], exoplanet["dec"], exoplanet["sy_plx"]]
-		exoplanet_mass[exoplanet["pl_name"]] = exoplanet["pl_masse"]
-		# print("Exoplanet: ", exoplanet["pl_name"], " at (", exoplanet["ra"], ", ", exoplanet["dec"], ") with parallax: ", exoplanet["sy_plx"])
-		exoplanet_data_recieved += 1
+		if not(exoplanet["sy_plx"] == null):
+			create_exoplanet_button(exoplanet["pl_name"])
+			exoplanets[exoplanet["pl_name"]] = [exoplanet["ra"], exoplanet["dec"], exoplanet["sy_plx"]]
+			exoplanet_mass[exoplanet["pl_name"]] = exoplanet["pl_masse"]
+			# print("Exoplanet: ", exoplanet["pl_name"], " at (", exoplanet["ra"], ", ", exoplanet["dec"], ") with parallax: ", exoplanet["sy_plx"])
+			exoplanet_data_recieved += 1
 	
 	print("Loaded ", len(exoplanets), " exoplanets")
 
@@ -89,9 +90,9 @@ func create_exoplanet_button(planet_name):
 # math for possition based on earth
 func get_pos(ra, dec, parallax):
 	# real:
-	var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax)
-	var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax)
-	var z = sin(deg_to_rad(dec))/tan(parallax)
+	var x = cos(deg_to_rad(dec)) * cos(deg_to_rad(ra))/tan(parallax*360)
+	var y = cos(deg_to_rad(dec)) * sin(deg_to_rad(ra))/tan(parallax*360)
+	var z = sin(deg_to_rad(dec))/tan(parallax*360)
 	return Vector3(x, y, z)
 
 # outside of main loading script so it can be acessed by reload
@@ -103,7 +104,7 @@ func _on_load_exoplanet(planet_name):
 	
 	$CanvasLayer/Control/Label2.change_info(exoplanet_mass[planet_name])
 	
-	print("Loading exoplanet: ", planet_name, " at ", pos)
+	# print("Loading exoplanet: ", planet_name, " at ", pos)
 
 	for child in $Stars.get_children():
 		child.queue_free()
@@ -117,40 +118,14 @@ func _on_load_exoplanet(planet_name):
 	for star in stars:
 		var star_pos = stars[star]
 		star_pos -= pos
-		star_pos /= 10000
-		if (true): # (star_pos.length() < 100):
-			var new_star_scene = star_scene.instantiate()
-			new_star_scene.star_name = star
-			new_star_scene.translate(star_pos)
-			$Stars.add_child(new_star_scene)
-			
-			var new_star_button_scene = star_button_scene.instantiate()
-			new_star_button_scene.star = new_star_scene
-			$CanvasLayer/Control/Control.add_child(new_star_button_scene)
-		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
-
-# instanciates scene without switching exoplanets
-func reload():
-	for star in stars:
+		star_pos /= 10000/360
 		
-		print("reloading")
-
-		for child in $Node.get_children():
-			child.queue_free()
-
-		for child in $CanvasLayer/Control/Control.get_children():
-			child.queue_free()
-			
-		if (typeof(pos) == TYPE_INT):
-			var star_pos = stars[star]
-			star_pos -= pos
-			star_pos /= 10000
-			if (true): # (star_pos.length()<100):
-				var new_star_scene = star_scene.instantiate()
-				new_star_scene.translate(star_pos)
-				$Node.add_child(new_star_scene)
-				
-				var new_star_button_scene = star_button_scene.instantiate()
-				new_star_button_scene.star = new_star_scene
-				$CanvasLayer/Control/Control.add_child(new_star_button_scene)
-			# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)
+		var new_star_scene = star_scene.instantiate()
+		new_star_scene.star_name = star
+		new_star_scene.translate(star_pos)
+		$Stars.add_child(new_star_scene)
+		
+		var new_star_button_scene = star_button_scene.instantiate()
+		new_star_button_scene.star = new_star_scene
+		$CanvasLayer/Control/Control.add_child(new_star_button_scene)
+		# print("Star: ", star, " at ", star_pos, " is close to exoplanet: ", planet_name, " at ", pos)

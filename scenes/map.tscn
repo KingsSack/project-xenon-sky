@@ -16,7 +16,6 @@ script = ExtResource("1_syain")
 environment = SubResource("Environment_7ph6w")
 
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("3_2l4g3")
 
 [node name="Stars" type="Node" parent="."]
